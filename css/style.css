@@ -9703,3 +9703,130 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
+/* Featured Work Section Styles */
+.featured-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.featured-card:hover .image-container .overlay {
+    opacity: 1;
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+}
+
+.overlay-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.overlay-text p {
+    font-size: 1rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.featured-card .card-body {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.featured-card .card-text {
+    color: #e6e6e6;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.featured-card .badge {
+    padding: 8px 12px;
+    margin-right: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.featured-card .badge:hover {
+    transform: translateY(-2px);
+}
+
+.featured-link {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.featured-link:hover {
+    color: inherit;
+}
+
+/* Badge colors */
+.badge-primary {
+    background-color: #007bff;
+}
+
+.badge-info {
+    background-color: #17a2b8;
+}
+
+.badge-success {
+    background-color: #28a745;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .image-container {
+        height: 180px;
+    }
+    
+    .overlay-text h3 {
+        font-size: 1.2rem;
+    }
+    
+    .featured-card .card-body {
+        padding: 1rem;
+    }
+}
