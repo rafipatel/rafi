@@ -26,12 +26,13 @@
     }
 
     iframe {
-      width: 50vw;
+      width: 48vw;
       height: 100vh;
       border: 1px solid #ccc;
-      border-radius: 8px;
+      border-radius: 50px;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
       margin-top: 20px;
+      
     }
 
     @media (max-width: 768px) {
@@ -48,6 +49,36 @@
 </head>
 <body>
   <header>Rafi Ahmed Patel — Resume</header>
+  <div style="
+  position: fixed;
+  top: 100px;
+  right: 150px;
+  z-index: 1000;
+">
+  <a href="https://docs.google.com/document/d/1iG_1TTeM1nXVznnwJofbd7g-iIRZSNy0/export?format=pdf"
+     download
+     target="_blank"
+     rel="noopener noreferrer"
+     style="
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: #ffbf00;
+        color: black;
+        padding: 10px 16px;
+        font-weight: bold;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        text-decoration: none;
+        box-shadow: 0 3px 8px rgba(255, 215, 0, 0.3);
+        transition: all 0.2s ease-in-out;
+     "
+     onmouseover="this.style.transform='scale(1.05)'"
+     onmouseout="this.style.transform='scale(1)'"
+  >
+    Download Resume
+  </a>
+</div>
   <iframe 
     src="https://docs.google.com/document/d/e/2PACX-1vS-BxYeE0l_l4EeZIDiQLKZlw2-lwNPeHj_zi5EpxWnOKnciREOG1bVka4Uc3gurg/pub?embedded=true" 
     allowfullscreen>
