@@ -9830,3 +9830,166 @@ textarea.form-control {
         padding: 1rem;
     }
 }
+
+
+/*======================================
+//--//-->   ABOUT
+======================================*/
+
+.about-mf .box-shadow-full {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.about-mf .about-img {
+  margin-bottom: 2rem;
+}
+
+.about-mf .about-img img {
+  margin-left: 10px;
+}
+
+.skill-mf .progress {
+  /* background-color: #cde1f8; */
+  margin: .5rem 0 1.2rem 0;
+  border-radius: 0;
+  height: .7rem;
+}
+
+.skill-mf .progress .progress-bar {
+  height: .7rem;
+  background-color: #ffbd39;
+}
+
+/* Animation styles */
+#typing-animation {
+  position: relative;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(20, end) infinite;
+}
+
+#typing-animation:before {
+  content: "";
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #ccc;
+  animation: typing-cursor 0.5s ease-in-out infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typing-cursor {
+  from {
+    width: 5px;
+  }
+  to {
+    width: 0;
+  }
+}
+
+/* project image zoom effect */
+.zoom-effect {
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+}
+.zoom-effect:hover {
+  transform: scale(1.1);
+}
+
+/* ======================================
+//--//-->   ENHANCED FEATURED/PROJECT CARDS
+====================================== */
+.featured-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05); /* keep white background */
+  color: #000; /* black text for card-body */
+}
+.featured-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.featured-card .card-body p {
+  color: #fff; /* ensures project descriptions are black */
+}
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+.image-container:hover img {
+  transform: scale(1.12);
+}
+.overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); /* slightly darker overlay on hover */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+}
+.image-container:hover .overlay {
+  opacity: 1;
+}
+.overlay-text h3 {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.overlay-text p {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+/* Badge styling: revert to previous gradient style */
+.badge {
+  padding: 6px 14px;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  background: linear-gradient(45deg, #f3ec78, #af4261); /* fallback gradient for generic badge */
+  color: #fff;
+}
+.badge-primary { background: linear-gradient(45deg, #6a11cb, #2575fc); color: #fff; }
+.badge-info { background: linear-gradient(45deg, #00c6ff, #0072ff); color: #fff; }
+.badge-success { background: linear-gradient(45deg, #11998e, #38ef7d); color: #fff; }
+/* Staggered animation on scroll (optional with AOS) */
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.8s;
+  transition-timing-function: ease-in-out;
+}
+[data-aos].aos-animate {
+  opacity: 1;
+}

@@ -44,93 +44,9 @@
 
 
 
-<style>
+<!-- <style>
 
-/*======================================
-//--//-->   ABOUT
-======================================*/
-
-.about-mf .box-shadow-full {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-.about-mf .about-img {
-  margin-bottom: 2rem;
-}
-
-.about-mf .about-img img {
-  margin-left: 10px;
-}
-
-
-.skill-mf .progress {
-  /* background-color: #cde1f8; */
-  margin: .5rem 0 1.2rem 0;
-  border-radius: 0;
-  height: .7rem;
-}
-
-.skill-mf .progress .progress-bar {
-  height: .7rem;
-  background-color: #ffbd39;
-}
-
-
-/* Animation styles */
-#typing-animation {
-  position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3s steps(20, end) infinite;
-}
-
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes typing-cursor {
-  from {
-    width: 5px;
-  }
-  to {
-    width: 0;
-  }
-}
-
-
-/* project image zoom effect */
-
-.zoom-effect {
-  overflow: hidden;
-  transition: transform 0.3s ease-out;
-}
-
-.zoom-effect:hover {
-  transform: scale(1.1);
-}
-
-
-</style>
+</style> -->
 
 
   </head>
@@ -225,112 +141,96 @@
 
 
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    	<div class="container">
-			<div class="row">
-				<div class="row d-flex align-items-stretch">
-				<!-- <div class="row d-flex"> -->
-					<div class="col-md-6 col-lg-5 d-flex">
-						<div class="img-about img d-flex align-items-stretch">
-							<div class="overlay">
-								<div class="row">
-									<div class="col-sm-6 col-md-5">
-									  <div class="about-img">
-										<img src="images/about-me.png" class="img-fluid rounded b-shadow-a" alt="Rafi Ahmed">
-									  </div>
-									</div>
-									<!-- Details next to profile image -->
-									<div class="col-sm-6 col-md-7">
-									  <div class="about-info">
-										<p><span class="title-s">Name: </span> <span>Rafi Ahmed</span></p>
-										<p><span class="title-s">Job Role: </span> <span>AI/ML Engineer</span></p>
-										<p><span class="title-s">Experience: </span> <span>1 Year 5 Months</span></p>
-										<p><span class="title-s">Address: </span> <span>London, United Kingdom </span></p>
-									  </div>
-									</div>
-								  </div>
-								
-									<div class="skill-mf">
-										<p class="title-s">Skills</p>
+      <div class="container">
+        <div class="row d-flex align-items-stretch">
+          <div class="col-md-6 col-lg-5 d-flex">
+            <div class="img-about img d-flex flex-column position-relative">
+              <div class="overlay"></div>
 
+              <!-- Profile image and roles at the top -->
+              <div class="row mb-3">
+                <div class="col-sm-6 col-md-5">
+                  <div class="about-img">
+                    <img src="images/about-me.png" class="img-fluid rounded b-shadow-a" alt="Rafi Ahmed">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-7">
+                  <div class="about-info">
+                    <p><span class="title-s">Name: </span> <span>Rafi Ahmed</span></p>
+                    <p><span class="title-s">Job Role: </span> <span>AI/ML Engineer</span></p>
+                    <p><span class="title-s">Experience: </span> <span>1 Year 5 Months</span></p>
+                    <p><span class="title-s">Address: </span> <span>London, United Kingdom </span></p>
+                  </div>
+                </div>
+              </div>
 
-										<span>Python</span> <span class="pull-right">95%</span>
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0"
-												aria-valuemax="100"></div>
-										</div>
+              <!-- Skills section at the bottom -->
+              <!-- <div class="skill-mf mt-auto"> -->
+                <p class="title-s">Skills</p>
 
-										<span>Machine Learning</span> <span class="pull-right">75%</span>
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-												aria-valuemax="100"></div>
-										</div>
-										
-										<span>Computer Vision</span> <span class="pull-right">80%</span>
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
-												aria-valuemax="100"></div>
-										</div>
+                <span>Python</span> <span class="pull-right">95%</span>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
 
-										<span>Natural Language Processing</span> <span class="pull-right">90%</span>
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
-												aria-valuemax="100"></div>
-										</div>
+                <span>Machine Learning</span> <span class="pull-right">75%</span>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
 
-										<span>Reinforcement Learning</span> <span class="pull-right">50%</span>
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-												aria-valuemax="100"></div>
-										</div>
+                <span>Computer Vision</span> <span class="pull-right">80%</span>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
 
-										<span>Amazon Web Services</span> <span class="pull-right">70%</span>
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0"
-												aria-valuemax="100"></div>
-										</div>
-										
+                <span>Natural Language Processing</span> <span class="pull-right">90%</span>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
 
-									</div>
-								</div>
-						</div>
-					</div>
+                <span>Reinforcement Learning</span> <span class="pull-right">50%</span>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+
+                <span>Amazon Web Services</span> <span class="pull-right">70%</span>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              <!-- </div> -->
+            </div>
+          </div>
 					
-					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-						<div class="row justify-content-start pb-3">
-							<div class="col-md-12 heading-section ftco-animate">
-								
-								<h1 class="big">About</h1>
-								<h2 class="mb-4">About Me</h2>
-								
-								<p> A MSc Artificial Intelligence graduate from City, University of London, selected for a prestigious Machine Learning in Lung Cancer Research Internship at University related to UK Cancer Research, TracerX. 
-									With more than a year of experience in AI and machine learning, I've worked on diverse projects from computer vision to NLP. My journey includes roles at Webomates and ResoluteAI, where I developed and deployed ML models for real-world applications. Proficient in Python, PyTorch, and TensorFlow, I specialize in several AWS cloud services, deep learning, computer vision, and data science. I'm passionate about leveraging AI to solve complex problems and drive innovation in technology. Although, I like working in AI in general, I am primarily inclined towards Research AI ,&  Medical AI are my primary Interest.</p>
-								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Profile:</span> <span>Data Science, Machine Learning &amp; Artificial Intelligence </span></li>
-									<li class="d-flex"><span>Domain:</span> <span>Medical, Ecommerce, Research &amp; Customer Services</span></li>
-									<li class="d-flex"><span>Education:</span> <span>Masters of Science in Artificial Intelligence</span></li>
-									<li class="d-flex"><span>Frameworks:</span> <span>Pytorch, TensorFlow, Flask</li>
-										<li class="d-flex"><span>Other Skills:</span> <span>AWS, MongoDB, Excel, Git, SQL,Kibana</span></li>
-										<li class="d-flex"><span>Interest:</span> <span>Sports, Fitness, Reading</span></li>
-										<li class="d-flex"><span>Language:</span> <span>English, Urdu, Hindi, Marathi</span></li>
-									
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="counter-wrap ftco-animate d-flex mt-md-3">
-							<div class="text">
-								<p class="mb-4">
-									<span class="number" data-number="15">0</span> <span>+</span>
-									<span>&nbsp; Projects completed</span>
-								</p>
-								<p><a href="https://github.com/rafipatel" class="btn btn-primary py-3 px-4">Github</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+          <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+            <div class="row justify-content-start pb-3">
+              <div class="col-md-12 heading-section ftco-animate">
+                <h1 class="big">About</h1>
+                <h2 class="mb-4">About Me</h2>
+                <p> A MSc Artificial Intelligence graduate from City, University of London, selected for a prestigious Machine Learning in Lung Cancer Research Internship at University related to UK Cancer Research, TracerX. 
+                  With more than a year of experience in AI and machine learning, I've worked on diverse projects from computer vision to NLP. My journey includes roles at Webomates and ResoluteAI, where I developed and deployed ML models for real-world applications. Proficient in Python, PyTorch, and TensorFlow, I specialize in several AWS cloud services, deep learning, computer vision, and data science. I'm passionate about leveraging AI to solve complex problems and drive innovation in technology. Although, I like working in AI in general, I am primarily inclined towards Research AI ,&  Medical AI are my primary Interest.</p>
+                <ul class="about-info mt-4 px-md-0 px-2">
+                  <li class="d-flex"><span>Profile:</span> <span>Data Science, Machine Learning &amp; Artificial Intelligence </span></li>
+                  <li class="d-flex"><span>Domain:</span> <span>Medical, Ecommerce, Research &amp; Customer Services</span></li>
+                  <li class="d-flex"><span>Education:</span> <span>Masters of Science in Artificial Intelligence</span></li>
+                  <li class="d-flex"><span>Frameworks:</span> <span>Pytorch, TensorFlow, Flask</span></li>
+                  <li class="d-flex"><span>Other Skills:</span> <span>AWS, MongoDB, Excel, Git, SQL,Kibana</span></li>
+                  <li class="d-flex"><span>Interest:</span> <span>Sports, Fitness, Reading</span></li>
+                  <li class="d-flex"><span>Language:</span> <span>English, Urdu, Hindi, Marathi</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="counter-wrap ftco-animate d-flex mt-md-3">
+              <div class="text">
+                <p class="mb-4">
+                  <span class="number" data-number="20">0</span> <span>+</span>
+                  <span>&nbsp; Projects completed</span>
+                </p>
+                <p><a href="https://github.com/rafipatel" class="btn btn-primary py-3 px-4">Github</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
 
@@ -473,81 +373,6 @@
 
    
 
-    <section class="ftco-section" id="project-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">Projects</h2>
-            <p>Below are my projects related to Artificial Intelligence, Machine Learning, Data Science, and Deep Reinforcement Learning.</p>
-          </div>
-        </div>
-        <div class="row d-flex">
-
-
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/rafipatel/MLCancerResearch" class="block-20 zoom-effect" style="background-image: url('images/proj_0.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/rafipatel/MLCancerResearch">New Applications of Machine Learning In Lung Cancer Research</a></h3>
-				  <p>As an internship project in relation to UK Cancer Research and Tracerx , this project employs evolutionary cancer trees, constructed from multi-regional sequencing data, to model the evolutionary relationships among cancer clones. By integrating these trees with machine learning algorithms like linear regression, random forests, support vector machines, and genetic algorithms, this research aims to enhance the prediction of survival rates among cancer patients. The innovative approach not only leverages cutting-edge machine learning techniques but also incorporates robust evolutionary models, offering a comprehensive method to understand and predict cancer progression. This study is grounded in the TRACERx lung cancer data set, ensuring a rich and clinically relevant foundation for predictive analysis.</p>
-				</div>
-			  </div>
-			</div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="https://github.com/rafipatel/Image-Super-Resolution-using-GANs" class="block-20 zoom-effect" style="background-image: url('images/proj_1.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/rafipatel/Image-Super-Resolution-using-GANs">Image Super Resolution using GANs</a></h3>
-                <p>The project implements two advanced deep learning models for low resolution to high resolution image - the Super Resolution Residual Network (SRResNet) and the Super-Resolution Generative Adversarial Network (SRGAN). The SRResNet utilizes a deep residual architecture to capture fine details, while the SRGAN takes this further by incorporating adversarial training for even more realistic results. This comprehensive implementation includes scripts for training and evaluation, along with robust utilities for data handling and model management, providing a complete solution for super-resolution tasks.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="https://github.com/rafipatel/transformer-pytorch-chatbot"  class="block-20 zoom-effect" style="background-image: url('images/proj_2.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/rafipatel/transformer-pytorch-chatbot">Chatbot using Seq2Seq & Transformer architecture (Pytorch)</a></h3>
-                <p>The project employs Seq2Seq and Transformer architectures, enhanced with attention mechanisms to enable the chatbot to conduct coherent and contextually relevant conversations. Applications of this chatbot span various sectors, including customer service, healthcare, and education.</p>
-              </div>
-            </div>
-          </div>
-		  
-        </div>
-	<br>
-		<!-- added justify-content-center to center align the last two projects -->
-		<div class="row d-flex justify-content-center">  
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/yasirbarlas/neural-network-from-scratch" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-					<h3 class="heading"><a href="https://github.com/yasirbarlas/neural-network-from-scratch">Feed Forward Neural Network and Recurrent Neural Network from scratch </a></h3>
-					<p>This project implements a feed forward neural network from scratch using NumPy, exploring various architectures, regularization techniques, and optimizers to understand their impact on model performance. Additionally, it also implements a recurrent neural network LSTM using PyTorch for temperature forecasting, experimenting with different LSTM configurations and optimization strategies. This project helped in deeper intuition and understanding of neural networks behavior and optimization techniques across different implementations.</p>
-				</div>
-			  </div>
-			</div>
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/rafipatel/Deep-Reinforcement-Learning/tree/main" class="block-20 zoom-effect" style="background-image: url('images/proj_5.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/rafipatel/Deep-Reinforcement-Learning/tree/main">Roomba and Breakout Game (Deep Reinforcement Learning)</a></h3>
-				  <p>This Project showcases the implementation and analysis of various reinforcement learning (RL) algorithms, from basic Q-learning to advanced Deep Q-Networks (DQN). The project applies Q-learning to a simplified house cleaning scenario, demonstrating parameter sensitivity and convergence behaviors in a basic task. For more complex environments, it implements DQN and Double DQN with prioritized experience replay, aiming to maximize rewards. Through these implementations, the project explores the progression from tabular methods to deep learning-based approaches in RL. This work highlights the versatility and effectiveness of RL algorithms in solving diverse problems, showcasing their potential for both practical applications and gaming environments.</p>
-				</div>
-			  </div>
-			</div>
-		 </div>
-	  </div>
-    </section>
 
 	<section class="ftco-section" id="achievements-section">
 		<div class="container">
@@ -609,7 +434,7 @@
 <div class="row">
 
 	<!-- Replace existing featured card sections with these hyperlinked versions -->
-<div class="col-md-6 mb-4">
+<div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="0">
     <a href="https://www.turing.ac.uk/ai-uk" class="featured-link" style="text-decoration: none;">
         <div class="card h-100 ftco-animate featured-card">
             <div class="image-container">
@@ -623,7 +448,7 @@
             </div>
             <div class="card-body">
                 <p class="card-text">
-                    Invited by the Harmony NLP research team to attend AIUK 2025 — the UK's national showcase of AI and data science hosted by The Alan Turing Institute...
+                    AIUK 2025, invited by the Harmony NLP research team to attend AIUK 2025 — the UK's national showcase of AI and data science hosted by The Alan Turing Institute...
                 </p>
                 <div class="mt-3">
                     <span class="badge badge-primary mr-2">AI UK</span>
@@ -637,7 +462,7 @@
 
 	
 	  <!-- NLP Challenge Winner -->
-	<div class="col-md-6 mb-4">
+	<div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
 		<a href="https://harmonydata.ac.uk/matching-challenge-winner-announcement/" class="featured-link" style="text-decoration: none;">
 			<div class="card h-100 ftco-animate featured-card">
 				<div class="image-container">
@@ -651,7 +476,7 @@
 				</div>
 				<div class="card-body">
 				<p class="card-text">
-					Won an Natural language Processing (NLP) competition by improving psychology survey question similarity algorithm, reducing MAE from 24 to 20.544. Organized by researchers from UCL, Ulster University, and Fast Data Science.
+					Won a Natural language Processing (NLP) competition by improving psychology survey question similarity algorithm, reducing MAE from 24 to 20.544. Organized by researchers from UCL, Ulster University, and Fast Data Science.
 				</p>
 				<div class="mt-3">
 					<span class="badge badge-primary mr-2">NLP</span>
@@ -664,21 +489,21 @@
 	</div>
 	  
 	<!-- Medical AI Research -->
-	<div class="col-md-6 mb-4">
+	<div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
 	<a href="https://drive.google.com/file/d/1cTheOGj38NBJrVf2i9XaaAm81jER86iy/view?usp=sharing" class="featured-link" style="text-decoration: none;">
 	  <div class="card h-100 ftco-animate featured-card">
 		<div class="image-container">
-		  <img src="images/research.png" alt="Medical AI Research">
+		  <img src="images/research.png" alt="Medical AI Research" style="transform: scale(0.99); transform-origin: center; width: 100%;">
 		  <div class="overlay">
 			<div class="overlay-text">
-			  <h3>Medical AI Research</h3>
+			  <h3>Medical AI Research (ongoing)</h3>
 			  <p>City, University of London - UK Cancer Research</p>
 			</div>
 		  </div>
 		</div>
 		<div class="card-body">
 		  <p class="card-text">
-			Led research on integrating evolutionary cancer trees with machine learning for improved lung cancer survival prediction. Collaborated with researchers from Oxford University and City, University of London.
+			ML in Lung Cancer research project,  led a research on integrating evolutionary cancer trees with machine learning for improved lung cancer survival prediction. Collaborated with researchers from Oxford University and City, University of London.
 		  </p>
 		  <div class="mt-3">
 			<span class="badge badge-primary mr-2">Machine Learning</span>
@@ -691,7 +516,7 @@
 	</div>
 	
 	<!-- AI Defect Predictor -->
-	<div class="col-md-6 mb-4">
+	<div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
 	<a href="https://www.webomates.com/aihealing/" class="featured-link" style="text-decoration: none;">
 	  <div class="card h-100 ftco-animate featured-card">
 		<div class="image-container">
@@ -705,7 +530,7 @@
 		</div>
 		<div class="card-body">
 		  <p class="card-text">
-			Improved an AI system that resulted in faster releases and considerable reduction in production defects. Implemented using AWS services and advanced ML techniques.
+			Defect detection in web pages, worked on improvement of an AI system that resulted in faster releases and considerable reduction in production defects. Implemented using AWS services and advanced ML techniques.
 		  </p>
 		  <div class="mt-3">
 			<span class="badge badge-primary mr-2">AWS</span>
@@ -717,38 +542,113 @@
 	</a>
 	</div>
   
-	<!-- Super Resolution GAN -->
-	<div class="col-md-6 mb-4">
-	<a href="https://github.com/rafipatel/Image-Super-Resolution-using-GANs" class="featured-link" style="text-decoration: none;">
-	  <div class="card h-100 ftco-animate featured-card">
-		<div class="image-container">
-		  <img src="images/gan.png" alt="Super Resolution GAN">
-		  <div class="overlay">
-			<div class="overlay-text">
-			  <h3>Super Resolution GAN</h3>
-			  <p>Computer Vision Research Project</p>
-			</div>
-		  </div>
-		</div>
-		<div class="card-body">
-		  <p class="card-text">
-			Implemented advanced GAN architectures (SRResNet and SRGAN) for image super-resolution, achieving high-quality upscaling of low-resolution images with remarkable detail preservation and also presented the first baselines for the Frechet Inception Distance (FID).
-		  </p>
-		  <div class="mt-3">
-			<span class="badge badge-primary mr-2">Deep Learning</span>
-			<span class="badge badge-info mr-2">GANs</span>
-			<span class="badge badge-success">PyTorch</span>
-		  </div>
-		</div>
-	  </div>
-	</a>
-	</div>
-  
-	
-  
-  </div>
-
+    <!-- Project 2 -->
+    <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
+      <a href="https://github.com/rafipatel/Image-Super-Resolution-using-GANs" class="featured-link" style="text-decoration: none;">
+        <div class="card h-100 ftco-animate featured-card">
+          <div class="image-container">
+            <img src="images/proj_1.jpg" alt="Image Super Resolution using GANs">
+            <div class="overlay">
+              <div class="overlay-text">
+                <h3>Image Super Resolution using GANs</h3>
+                <p>Deep Learning Project</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              Implemented advanced GAN architectures (SRResNet and SRGAN) for image super-resolution, achieving high-quality upscaling of low-resolution images with remarkable detail preservation and also presented the first baselines for the Frechet Inception Distance (FID).
+            </p>
+            <div class="mt-3">
+              <span class="badge badge-primary mr-2">Computer Vision</span>
+              <span class="badge badge-info mr-2">GANs</span>
+              <span class="badge badge-success">Deep Learning</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- Project 3 -->
+    <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="700">
+      <a href="https://github.com/rafipatel/transformer-pytorch-chatbot" class="featured-link" style="text-decoration: none;">
+        <div class="card h-100 ftco-animate featured-card">
+          <div class="image-container">
+            <img src="https://www.aimtechnologies.co/wp-content/uploads/2023/11/AI-Chatbots.jpg" alt="Chatbot using Seq2Seq & Transformer architecture (Pytorch)">
+            <div class="overlay">
+              <div class="overlay-text">
+                <h3>Chatbot using Seq2Seq & Transformer architecture (Pytorch)</h3>
+                <p>NLP Conversational AI</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              The project employs Seq2Seq and Transformer architectures, enhanced with attention mechanisms to enable the chatbot to conduct coherent and contextually relevant conversations. Applications of this chatbot span various sectors, including customer service, healthcare, and education.
+            </p>
+            <div class="mt-3">
+              <span class="badge badge-primary mr-2">NLP</span>
+              <span class="badge badge-info mr-2">Transformer</span>
+              <span class="badge badge-success">PyTorch</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- Project 4 -->
+    <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="800">
+      <a href="https://github.com/yasirbarlas/neural-network-from-scratch" class="featured-link" style="text-decoration: none;">
+        <div class="card h-100 ftco-animate featured-card">
+          <div class="image-container">
+            <img src="images/proj_4.jpg" alt="Feed Forward Neural Network and Recurrent Neural Network from scratch">
+            <div class="overlay">
+              <div class="overlay-text">
+                <h3>Feed Forward & Recurrent Neural Network from Scratch</h3>
+                <p>Educational Deep Learning</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              Implemented a feedforward neural network from scratch using NumPy, exploring architectures, regularization, and optimizers to study their impact on performance. Also built an LSTM in PyTorch for temperature forecasting, experimenting with configurations and optimization strategies, gaining deeper intuition on neural network behavior and training.
+            </p>
+            <div class="mt-3">
+              <span class="badge badge-primary mr-2">Deep Learning</span>
+              <span class="badge badge-info mr-2">NumPy</span>
+              <span class="badge badge-success">PyTorch</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- Project 5 -->
+    <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="900">
+      <a href="https://github.com/rafipatel/Deep-Reinforcement-Learning/tree/main" class="featured-link" style="text-decoration: none;">
+        <div class="card h-100 ftco-animate featured-card">
+          <div class="image-container">
+            <img src="images/proj_5.jpg" alt="Roomba and Breakout Game (Deep Reinforcement Learning)">
+            <div class="overlay">
+              <div class="overlay-text">
+                <h3>Roomba and Breakout Game (Deep Reinforcement Learning)</h3>
+                <p>Reinforcement Learning</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              Implemented and analyzed reinforcement learning algorithms, from Q-learning in a simplified house-cleaning scenario to DQN and Double DQN with prioritized experience replay for complex tasks. Explored parameter sensitivity, convergence, and the transition from tabular methods to deep learning-based RL, demonstrating their effectiveness across diverse applications.
+            </p>
+            <div class="mt-3">
+              <span class="badge badge-primary mr-2">Reinforcement Learning</span>
+              <span class="badge badge-info mr-2">Deep Learning</span>
+              <span class="badge badge-success">Q-Learning</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
   </section>
+
+
 
 
 	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
@@ -890,7 +790,7 @@
 					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
 					  <li class="ftco-animate normal-txt">Find me on  </li>
 					  <!-- <li class="ftco-animate"><a href="https://www.youtube.com/@RishabhMishraOfficial"><span class="icon-youtube"></span></a></li> -->
-					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/raafi-patel-bb2954202/"><span class="icon-linkedin"></span></a></li>  
+					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/raafi-riyaz-bb2954202/"><span class="icon-linkedin"></span></a></li>  
 					  <li class="ftco-animate"><a href="https://x.com/rafipatel_rafi"><span class="icon-twitter"></span></a></li>
 					  <!-- <li class="ftco-animate"><a href="https://x.com/rafipatel_rafi"><span class="icon-facebook"></span></a></li> -->
 				      <!-- <li class="ftco-animate"><a href="https://www.instagram.com/__raafi___"><span class="icon-instagram"></span></a></li> -->
@@ -946,6 +846,140 @@
 	</script>
   
   <script src="js/main.js"></script>
-    
+
+  <!-- Vertical Live Projects Ticker -->
+  <div id="vertical-live-projects">
+	<h3 class="ticker-heading">Most Recent Projects</h3>
+    <div class="owl-carousel owl-theme">
+
+      <div class="item">
+        <a href="https://huggingface.co/spaces/Rafii/curify_lipsync_" target="_blank">
+          <img src="images/lipsync.png" alt="Computer Vision Speech">
+		  <p class="project-name">Lip Sync</p>
+     	  <p class="project-desc">Seamlessly match any video’s lip movements to a user’s voice (Private)</p>
+          <!-- <p>Lip Sync - seamlessly match any video’s lip movements to a user’s voice</p> -->
+        </a>
+      </div>
+      <div class="item">
+        <a href="https://huggingface.co/spaces/Rafii/SpeechSegmenter" target="_blank">
+          <img src="images/whisper.png" alt="Speech To Text">
+		  <p class="project-name">Speech Segmenter</p>
+     	  <p class="project-desc">An advanced multilingual Speech-to-Text (STT) pipeline using WhisperX large v3  (Live)</p>
+          <p> </p>
+        </a>
+      </div>
+      <div class="item">
+        <a href="https://huggingface.co/Rafii/f1llama/" target="_blank">
+          <img src="images/image.png" alt="LLM">
+		  <p class="project-name">F1llama</p>
+     	  <p class="project-desc">Fine-tuned Meta-Llama-3-8B model with Low-Rank Adaptation (LoRA) (Live)</p>
+          <p></p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<style>
+.img-about {
+  position: relative;
+}
+.img-about .overlay {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.1);
+  z-index:1;
+  pointer-events:none;
+}
+.skill-mf {
+  position: relative;
+  z-index: 5;
+  background: rgba(255,255,255,0.95);
+  padding: 10px;
+  border-radius: 8px;
+
+#vertical-live-projects .owl-carousel .item .project-text {
+  text-align: center;
+  margin-top: 5px;
+}
+
+#vertical-live-projects .owl-carousel .item .project-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+#vertical-live-projects .owl-carousel .item .project-desc {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #555;
+  margin: 0;
+}  
+}
+#vertical-live-projects {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 250px;
+  max-height: 70vh;
+  overflow-y: auto;
+  z-index: 9999;
+  background: rgba(25, 23, 23, 0.95);
+  border-left: 2px solid #eef0f1;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+#vertical-live-projects .ticker-heading {
+  font-size: 0.85rem;   /* reduced from 1rem */
+  font-weight: 600;     /* lighter than before */
+  text-align: center;
+  margin-bottom: 10px;
+  color: #ffbf00;
+  border-bottom: 1px solid #eeeff0;
+  padding-bottom: 4px;
+  letter-spacing: 0.5px; /* subtle refinement */
+}
+
+#vertical-live-projects .owl-carousel .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#vertical-live-projects .owl-carousel .item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+#vertical-live-projects .owl-carousel .item p {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+  $("#vertical-live-projects .owl-carousel").owlCarousel({
+    items: 1,
+    loop: true,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true,
+	animateOut: 'fadeOut',
+	animateIn: 'fadeIn',
+    smartSpeed: 800,
+    dots: false,
+    nav: false
+  });
+});
+</script>
   </body>
 </html>
