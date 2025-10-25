@@ -1,12 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Navigation from "@/components/Navigation";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Resume from "@/components/Resume";
+import Achievements from "@/components/Achievements";
+import Projects from "@/components/Projects";
+import Certifications from "@/components/Certifications";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import ResumeModal from "@/components/ResumeModal";
 
 const Index = () => {
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background text-foreground">
+      <Navigation />
+      <Hero />
+      <About />
+      <Resume onViewResume={() => setIsResumeModalOpen(true)} />
+      <Achievements />
+      <Projects />
+      <Certifications />
+      <Contact />
+      <Footer />
+      <ResumeModal isOpen={isResumeModalOpen} onClose={() => setIsResumeModalOpen(false)} />
     </div>
   );
 };
