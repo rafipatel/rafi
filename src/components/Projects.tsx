@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
+import ParallaxContainer from "@/components/ParallaxContainer";
 
 const Projects = () => {
   const ref = useRef(null);
@@ -108,13 +109,13 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
-              className="glass rounded-2xl overflow-hidden group hover:shadow-[var(--shadow-elegant)] transition-all duration-300"
-            >
+            <ParallaxContainer key={index} strength={5}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+                className="glass rounded-2xl overflow-hidden group hover:shadow-[var(--shadow-elegant)] transition-all duration-300"
+              >
               {project.link ? (
                 <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
                   <div className="relative overflow-hidden h-48">
@@ -171,7 +172,8 @@ const Projects = () => {
                   </div>
                 </>
               )}
-            </motion.div>
+              </motion.div>
+            </ParallaxContainer>
           ))}
         </div>
       </div>

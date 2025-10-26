@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Download } from "lucide-react";
 import { useState, useEffect } from "react";
+import MagneticButton from "@/components/MagneticButton";
 
 const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
@@ -97,38 +98,44 @@ const Hero = () => {
             transition={{ delay: 0.9, duration: 0.8 }}
             className="flex flex-wrap gap-4 justify-center"
           >
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              asChild
-            >
-              <a href="https://www.linkedin.com/in/raafi-riyaz-bb2954202/" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-              asChild
-            >
-              <a href="https://github.com/rafipatel" target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-5 w-5" />
-                Github
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
-              asChild
-            >
-              <a href="https://docs.google.com/document/d/1sNF1vzBpYc1qbRfekIac0mYG5mOGdx-V/export?format=pdf" download>
-                <Download className="mr-2 h-5 w-5" />
-                Download CV
-              </a>
-            </Button>
+            <MagneticButton strength={0.4}>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                asChild
+              >
+                <a href="https://www.linkedin.com/in/raafi-riyaz-bb2954202/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="mr-2 h-5 w-5" />
+                  LinkedIn
+                </a>
+              </Button>
+            </MagneticButton>
+            <MagneticButton strength={0.4}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                asChild
+              >
+                <a href="https://github.com/rafipatel" target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-5 w-5" />
+                  Github
+                </a>
+              </Button>
+            </MagneticButton>
+            <MagneticButton strength={0.4}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+                asChild
+              >
+                <a href="https://docs.google.com/document/d/1sNF1vzBpYc1qbRfekIac0mYG5mOGdx-V/export?format=pdf" download>
+                  <Download className="mr-2 h-5 w-5" />
+                  Download CV
+                </a>
+              </Button>
+            </MagneticButton>
           </motion.div>
 
           {/* Scroll Indicator */}

@@ -59,10 +59,19 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    cursor: none;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  * {
+    cursor: none;
+  }
+
+  a, button {
+    cursor: none !important;
   }
 }
 
