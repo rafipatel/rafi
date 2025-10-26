@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 interface ParallaxContainerProps {
@@ -11,10 +11,12 @@ const ParallaxContainer = ({ children, className = '', strength = 15 }: Parallax
   const ref = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const springConfig = { damping: 20, stiffness: 100 };
+  const springConfig = { damping: 25, stiffness: 120 };
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [strength, -strength]), springConfig);
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-strength, strength]), springConfig);
+  const scale = useSpring(isHovered ? 1.02 : 1, springConfig);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
@@ -25,21 +27,27 @@ const ParallaxContainer = ({ children, className = '', strength = 15 }: Parallax
     mouseY.set(y);
   };
 
+  const handleMouseEnter = () => setIsHovered(true);
+
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
+    setIsHovered(false);
   };
 
   return (
     <motion.div
       ref={ref}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
         rotateX,
         rotateY,
+        scale,
         transformStyle: 'preserve-3d',
       }}
+      transition={{ duration: 0.3 }}
       className={className}
     >
       {children}

@@ -10,6 +10,7 @@ interface MagneticButtonProps {
 const MagneticButton = ({ children, className = '', strength = 0.3 }: MagneticButtonProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
@@ -21,21 +22,43 @@ const MagneticButton = ({ children, className = '', strength = 0.3 }: MagneticBu
     setPosition({ x: distanceX, y: distanceY });
   };
 
+  const handleMouseEnter = () => setIsHovered(true);
+
   const handleMouseLeave = () => {
     setPosition({ x: 0, y: 0 });
+    setIsHovered(false);
   };
 
   return (
     <motion.div
       ref={ref}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      animate={{ x: position.x, y: position.y }}
-      transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
+      animate={{ 
+        x: position.x, 
+        y: position.y,
+        scale: isHovered ? 1.05 : 1,
+      }}
+      transition={{ 
+        type: 'spring', 
+        stiffness: 200, 
+        damping: 20, 
+        mass: 0.5 
+      }}
       className={className}
       data-magnetic
     >
-      {children}
+      <motion.div
+        animate={{
+          rotateX: position.y * 0.1,
+          rotateY: position.x * 0.1,
+        }}
+        transition={{ duration: 0.2 }}
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        {children}
+      </motion.div>
     </motion.div>
   );
 };
