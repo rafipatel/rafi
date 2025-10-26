@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useScrollReveal, scrollVariants } from "@/hooks/use-scroll-reveal";
 import { MapPin, Phone, Mail, Linkedin, Github } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
+import InteractiveElement from "@/components/InteractiveElement";
 
 const Contact = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { ref, isInView } = useScrollReveal();
 
   const contactInfo = [
     {
@@ -53,9 +52,9 @@ const Contact = () => {
       
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={scrollVariants.floatUp.initial}
+          animate={isInView ? scrollVariants.floatUp.animate : {}}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
@@ -70,16 +69,24 @@ const Contact = () => {
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass p-8 rounded-2xl text-center hover:shadow-[var(--shadow-elegant)] transition-all duration-300 group"
-              >
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:animate-glow-pulse">
+              <InteractiveElement key={index}>
+                <motion.div
+                  initial={scrollVariants.assemble.initial}
+                  animate={isInView ? scrollVariants.assemble.animate : {}}
+                  transition={{ 
+                    duration: 0.9, 
+                    delay: index * 0.15,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                  className="glass p-8 rounded-2xl text-center group h-full"
+                >
+                <motion.div 
+                  className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:animate-glow-pulse"
+                  whileHover={{ scale: 1.15, rotate: 10 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <Icon className="w-8 h-8 text-primary" />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-bold mb-3 text-foreground">{info.title}</h3>
                 {info.link ? (
                   <a
@@ -91,7 +98,8 @@ const Contact = () => {
                 ) : (
                   <p className="text-muted-foreground">{info.value}</p>
                 )}
-              </motion.div>
+                </motion.div>
+              </InteractiveElement>
             );
           })}
         </div>
@@ -110,19 +118,29 @@ const Contact = () => {
             {socials.map((social, index) => {
               const Icon = social.icon;
               return (
-                <motion.a
+                <InteractiveElement
                   key={index}
+                  as="a"
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  className="w-14 h-14 rounded-full glass flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300 group"
-                  aria-label={social.label}
+                  glowColor="hsl(217 91% 60%)"
                 >
-                  <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
-                </motion.a>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                    animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
+                    transition={{ 
+                      duration: 0.7, 
+                      delay: 0.6 + index * 0.1,
+                      ease: [0.22, 1, 0.36, 1]
+                    }}
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    className="w-14 h-14 rounded-full glass flex items-center justify-center group"
+                    aria-label={social.label}
+                  >
+                    <Icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+                  </motion.div>
+                </InteractiveElement>
               );
             })}
           </div>

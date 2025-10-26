@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useScrollReveal, scrollVariants } from "@/hooks/use-scroll-reveal";
 import { Trophy, Award, Target, Briefcase } from "lucide-react";
+import InteractiveElement from "@/components/InteractiveElement";
 
 const Achievements = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { ref, isInView } = useScrollReveal();
 
   const achievements = [
     {
@@ -42,9 +41,9 @@ const Achievements = () => {
       
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={scrollVariants.floatUp.initial}
+          animate={isInView ? scrollVariants.floatUp.animate : {}}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
@@ -55,46 +54,46 @@ const Achievements = () => {
         <div className="grid md:grid-cols-2 gap-6">
           {achievements.map((achievement, index) => {
             const Icon = achievement.icon;
+            const variant = index % 2 === 0 ? scrollVariants.scattered : scrollVariants.scatteredRight;
             return (
-              <motion.div
+              <InteractiveElement 
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass p-8 rounded-2xl hover:shadow-[var(--shadow-elegant)] transition-all duration-300 group"
+                as={achievement.link ? "a" : "div"}
+                href={achievement.link}
+                target={achievement.link ? "_blank" : undefined}
+                rel={achievement.link ? "noopener noreferrer" : undefined}
+                className="block"
               >
-                {achievement.link ? (
-                  <a href={achievement.link} target="_blank" rel="noopener noreferrer" className="block">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:animate-glow-pulse">
-                          <Icon className="w-8 h-8 text-primary" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-                          {achievement.title}
-                        </h3>
-                        <p className="text-secondary text-sm font-semibold mb-3">{achievement.date}</p>
-                        <p className="text-muted-foreground leading-relaxed">{achievement.description}</p>
-                      </div>
-                    </div>
-                  </a>
-                ) : (
+                <motion.div
+                  initial={variant.initial}
+                  animate={isInView ? variant.animate : {}}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: index * 0.12,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                  className="glass p-8 rounded-2xl h-full group"
+                >
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
+                    <motion.div 
+                      className="flex-shrink-0"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:animate-glow-pulse">
                         <Icon className="w-8 h-8 text-primary" />
                       </div>
-                    </div>
+                    </motion.div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold mb-2 text-foreground">{achievement.title}</h3>
+                      <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                        {achievement.title}
+                      </h3>
                       <p className="text-secondary text-sm font-semibold mb-3">{achievement.date}</p>
                       <p className="text-muted-foreground leading-relaxed">{achievement.description}</p>
                     </div>
                   </div>
-                )}
-              </motion.div>
+                </motion.div>
+              </InteractiveElement>
             );
           })}
         </div>
