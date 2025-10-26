@@ -1,203 +1,123 @@
-import { useEffect, useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { useEffect, useRef } from "react";
 
-const AnimatedBackground = () => {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+type Particle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  size: number;
+  opacity: number;
+  color: string;
+};
+
+const FloatingPaint = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const particlesRef = useRef<Particle[]>([]);
+  // Use a ref for the animation frame to cancel it on unmount
+  const animationFrameRef = useRef<number | null>(null);
 
-  const springConfig = { damping: 30, stiffness: 100 };
-  const x = useSpring(mouseX, springConfig);
-  const y = useSpring(mouseY, springConfig);
-
-  const rotateX = useTransform(y, [0, window.innerHeight], [10, -10]);
-  const rotateY = useTransform(x, [0, window.innerWidth], [-10, 10]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  // Canvas particle animation
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      size: number;
-      opacity: number;
-    }> = [];
-
-    // Create particles
-    for (let i = 0; i < 50; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
-      });
-    }
-
-    let mouseXPos = 0;
-    let mouseYPos = 0;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseXPos = e.clientX;
-      mouseYPos = e.clientY;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((particle, index) => {
-        // Move particles
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-        // Mouse interaction - particles move away from cursor
-        const dx = mouseXPos - particle.x;
-        const dy = mouseYPos - particle.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        if (distance < 150) {
-          const force = (150 - distance) / 150;
-          particle.x -= (dx / distance) * force * 2;
-          particle.y -= (dy / distance) * force * 2;
-        }
-
-        // Wrap around edges
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.y < 0) particle.y = canvas.height;
-        if (particle.y > canvas.height) particle.y = 0;
-
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(173, 80%, 60%, ${particle.opacity})`;
-        ctx.fill();
-
-        // Connect nearby particles
-        particles.slice(index + 1).forEach(otherParticle => {
-          const dx = particle.x - otherParticle.x;
-          const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 100) {
-            ctx.beginPath();
-            ctx.strokeStyle = `hsla(173, 80%, 60%, ${0.1 * (1 - distance / 100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.stroke();
-          }
-        });
-      });
-
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    const handleResize = () => {
+    const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-    window.addEventListener('resize', handleResize);
+    let mouseX = 0;
+    let mouseY = 0;
+    let isMoving = false;
+
+    const colors = ["#ff4b5c", "#56cfe1", "#ffb703", "#8ac926", "#1982c4"];
+
+    const addParticles = (x: number, y: number) => {
+      for (let i = 0; i < 3; i++) {
+        particlesRef.current.push({
+          x,
+          y,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
+          size: Math.random() * 8 + 2,
+          opacity: 1,
+          color: colors[Math.floor(Math.random() * colors.length)],
+        });
+      }
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      isMoving = true;
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
+    const animate = () => {
+      if (!ctx) return;
+
+      // --- THEME-AWARE FIX ---
+      // Check if the <html> element has the 'dark' class
+      const isDarkMode = document.documentElement.classList.contains('dark');
+      // Set the fade color based on the theme
+      const fadeColor = isDarkMode
+        ? 'rgba(0, 0, 0, 0.05)'   // Fade to black in dark mode
+        : 'rgba(255, 255, 255, 0.05)'; // Fade to white in light mode
+
+      // Apply the fade effect
+      ctx.fillStyle = fadeColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // --- END FIX ---
+
+      if (isMoving) {
+        addParticles(mouseX, mouseY);
+        isMoving = false; // only spawn particles when cursor moves
+      }
+
+      particlesRef.current.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.opacity -= 0.01; // slowly fade out
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        // We can safely cache the RGB conversion or do it here
+        ctx.fillStyle = `rgba(${hexToRgb(p.color)},${p.opacity})`;
+        ctx.fill();
+      });
+
+      // remove faded particles
+      particlesRef.current = particlesRef.current.filter(p => p.opacity > 0);
+
+      animationFrameRef.current = requestAnimationFrame(animate);
+    };
+
+    // Start the animation
+    animate();
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('resize', handleResize);
+      // Clean up listeners and animation frame
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", resizeCanvas);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
-  }, []);
+  }, []); // Empty dependency array ensures this runs only once on mount
 
-  return (
-    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-      {/* Canvas particles */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 opacity-60"
-      />
+  // helper to convert hex color to rgb
+  const hexToRgb = (hex: string) => {
+    const bigint = parseInt(hex.replace("#", ""), 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    return `${r},${g},${b}`;
+  };
 
-      {/* Gradient orbs with parallax */}
-      <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full blur-[120px] opacity-20"
-        style={{
-          background: 'radial-gradient(circle, hsl(173 80% 60%) 0%, transparent 70%)',
-          x: useTransform(x, [0, window.innerWidth], [-100, 100]),
-          y: useTransform(y, [0, window.innerHeight], [-100, 100]),
-          top: '10%',
-          left: '20%',
-        }}
-      />
-      
-      <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full blur-[100px] opacity-15"
-        style={{
-          background: 'radial-gradient(circle, hsl(217 91% 60%) 0%, transparent 70%)',
-          x: useTransform(x, [0, window.innerWidth], [50, -50]),
-          y: useTransform(y, [0, window.innerHeight], [50, -50]),
-          top: '40%',
-          right: '10%',
-        }}
-      />
-      
-      <motion.div
-        className="absolute w-[400px] h-[400px] rounded-full blur-[80px] opacity-10"
-        style={{
-          background: 'radial-gradient(circle, hsl(38 92% 50%) 0%, transparent 70%)',
-          x: useTransform(x, [0, window.innerWidth], [-30, 30]),
-          y: useTransform(y, [0, window.innerHeight], [-30, 30]),
-          bottom: '20%',
-          left: '30%',
-        }}
-      />
-
-      {/* Floating circuit patterns */}
-      <motion.div
-        className="absolute inset-0 opacity-5"
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: 'preserve-3d',
-        }}
-      >
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-              <path d="M10 10h30v30h30M40 40v30h30" stroke="hsl(173 80% 60%)" strokeWidth="0.5" fill="none"/>
-              <circle cx="40" cy="40" r="2" fill="hsl(173 80% 60%)"/>
-              <circle cx="70" cy="70" r="2" fill="hsl(217 91% 60%)"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#circuit)"/>
-        </svg>
-      </motion.div>
-
-      {/* Animated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/80" />
-    </div>
-  );
+  return <canvas ref={canvasRef} className="fixed inset-0 z-[1] pointer-events-none" />;
 };
 
-export default AnimatedBackground;
+export default FloatingPaint;

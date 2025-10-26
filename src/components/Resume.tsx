@@ -28,6 +28,7 @@ const Resume = ({ onViewResume }: ResumeProps) => {
       date: "Mar 2025 - Present",
       title: "Founding ML Research Engineer",
       company: "Curify-AI",
+      link: "https://www.curify-ai.com/en/about",
       points: [
         "Implementing end-to-end video translation pipelines with transcription, translation, voice cloning, and lip-sync synchronization.",
         "Built and deployed FastAPI microservices (ChatterBox multilingual TTS, WhisperX transcription, PaddleOCR) with Docker on Azure cloud.",
@@ -108,49 +109,69 @@ const Resume = ({ onViewResume }: ResumeProps) => {
           </p>
         </motion.div>
 
-        {/* Experience */}
+        {/* Experience Timeline */}
         <div className="mb-16">
           <motion.h3
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-3xl font-bold mb-8 text-primary"
+            className="text-3xl font-bold mb-12 text-center text-primary"
           >
             Experience
           </motion.h3>
           
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass p-6 rounded-xl hover:shadow-[var(--shadow-elegant)] transition-all duration-300"
-              >
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                  <div>
-                    <span className="text-secondary text-sm font-semibold block mb-2">{exp.date}</span>
-                    <h4 className="text-xl font-bold text-foreground mb-1">{exp.title}</h4>
-                    {exp.link ? (
-                      <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">
-                        {exp.company}
-                      </a>
-                    ) : (
-                      <span className="text-primary">{exp.company}</span>
-                    )}
-                  </div>
-                </div>
-                <ul className="space-y-2 text-muted-foreground">
-                  {exp.points.map((point, i) => (
-                    <li key={i} className="flex">
-                      <span className="text-primary mr-2">•</span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-primary via-accent to-primary opacity-30" />
+            
+            {/* Timeline items */}
+            <div className="space-y-12">
+              {experiences.map((exp, index) => {
+                const isLeft = index % 2 === 0;
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.6, delay: index * 0.15 }}
+                    className={`relative flex flex-col md:flex-row ${
+                      isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
+                    } items-center gap-8`}
+                  >
+                    {/* Content card */}
+                    <div className="w-full md:w-[calc(50%-2rem)]">
+                      <div className="glass p-6 rounded-xl hover:shadow-[var(--shadow-elegant)] transition-all duration-300 group">
+                        <span className="text-secondary text-sm font-semibold block mb-2">{exp.date}</span>
+                        <h4 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{exp.title}</h4>
+                        {exp.link ? (
+                          <a href={exp.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent transition-colors font-medium">
+                            {exp.company} →
+                          </a>
+                        ) : (
+                          <span className="text-primary font-medium">{exp.company}</span>
+                        )}
+                        <ul className="mt-4 space-y-2 text-muted-foreground text-sm">
+                          {exp.points.map((point, i) => (
+                            <li key={i} className="flex">
+                              <span className="text-primary mr-2 flex-shrink-0">•</span>
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    {/* Timeline dot */}
+                    <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background shadow-lg z-10">
+                      <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-75" />
+                    </div>
+                    
+                    {/* Empty space for alternating layout */}
+                    <div className="hidden md:block w-[calc(50%-2rem)]" />
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -160,23 +181,23 @@ const Resume = ({ onViewResume }: ResumeProps) => {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-3xl font-bold mb-8 text-primary"
+            className="text-3xl font-bold mb-8 text-center text-primary"
           >
             Education
           </motion.h3>
           
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {education.map((edu, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                className="glass p-6 rounded-xl hover:shadow-[var(--shadow-elegant)] transition-all duration-300"
+                className="glass p-6 rounded-xl hover:shadow-[var(--shadow-elegant)] transition-all duration-300 group"
               >
                 <span className="text-secondary text-sm font-semibold block mb-2">{edu.date}</span>
-                <h4 className="text-lg font-bold text-foreground mb-2">{edu.title}</h4>
-                <p className="text-primary mb-2">{edu.institution}</p>
+                <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{edu.title}</h4>
+                <p className="text-primary mb-2 font-medium">{edu.institution}</p>
                 <p className="text-muted-foreground text-sm">{edu.grade}</p>
               </motion.div>
             ))}

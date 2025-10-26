@@ -43,6 +43,11 @@ const Contact = () => {
       label: "GitHub",
       link: "https://github.com/rafipatel",
     },
+    {
+    icon: () => <span className="text-2xl">🤗</span>, // Emoji for Hugging Face
+    label: "Hugging Face",
+    link: "https://huggingface.co/Rafii",
+  },
   ];
 
   return (

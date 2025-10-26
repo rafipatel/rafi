@@ -19,7 +19,7 @@ const Footer = () => {
           <p className="text-muted-foreground flex items-center justify-center gap-2">
             Made with{" "}
             <Heart className="w-4 h-4 text-destructive fill-destructive animate-pulse" />{" "}
-            by <span className="text-primary font-semibold">Rafi Ahmed Patel</span>
+            by <span className="text-primary font-semibold">Raafi Riyaz</span>
           </p>
           <p className="text-xs text-muted-foreground/60 mt-2">
             Copyright © {currentYear} All rights reserved

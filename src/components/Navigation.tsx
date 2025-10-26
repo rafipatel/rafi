@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -70,6 +71,9 @@ const Navigation = () => {
                 )}
               </a>
             ))}
+            
+            {/* Theme Toggle Button */}
+            <ThemeToggle />
           </div>
         </div>
       </div>
