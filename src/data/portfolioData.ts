@@ -228,6 +228,7 @@ export const projects = [
 export const socialLinks = {
     linkedin: "https://www.linkedin.com/in/raafi-riyaz-bb2954202/",
     github: "https://github.com/rafipatel",
+    repoUrl: "https://github.com/rafipatel/rafi",
     huggingface: "https://huggingface.co/Rafii",
     cv: "https://docs.google.com/document/d/1sNF1vzBpYc1qbRfekIac0mYG5mOGdx-V/export?format=pdf"
 };

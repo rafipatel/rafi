@@ -10,6 +10,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ResumeModal from "@/components/ResumeModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import SourceCodeBadge from "@/components/SourceCodeBadge";
 
 const Index = () => {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
@@ -18,6 +19,7 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground relative">
       <AnimatedBackground />
       <Navigation />
+      <SourceCodeBadge />
       <Hero />
       <About />
       <Resume onViewResume={() => setIsResumeModalOpen(true)} />
