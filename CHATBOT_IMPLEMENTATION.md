@@ -15,7 +15,7 @@ I've successfully integrated a premium AI-powered chatbot into your portfolio us
 - Professional, friendly, and concise communication style
 
 ### 2. **Groq API Configuration** (`src/lib/groqConfig.ts`)
-- API key: `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`
+- API key: `your_groq_api_key`
 - Model: `llama-3.3-70b-versatile` (fast, high-quality responses)
 - Temperature: 0.7 (balanced creativity and accuracy)
 - Max tokens: 500 (concise responses)
