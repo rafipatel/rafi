@@ -1,5 +1,8 @@
-// Single source of truth for all portfolio data
 // Used by both UI components and AI chatbot knowledge base
+import videoTransImg from "@/components/photos/videoTrans.png";
+import aiuk2025Img from "@/components/photos/aiuk2025.png";
+import nlpchallengeImg from "@/components/photos/nlpchallenge.png";
+import srganImg from "@/components/photos/SRGAN.png";
 
 export const personalInfo = {
     name: "Rafi Ahmed",
@@ -153,7 +156,7 @@ export const projects = [
         description: "End-to-end video translation and voice cloning pipeline using Whisper large-v3 for transcription, Google Translate, and Chatterbox multilingual TTS for voice cloning. Supports 11+ languages with temporal alignment and automated audio-video synchronization.",
         badges: ["Computer Vision", "NLP", "Voice Clone"],
         link: "https://huggingface.co/spaces/Rafii/VideoTrans",
-        image: "src/components/photos/videoTrans.png",
+        image: videoTransImg,
         date: "December 2025",
     },
     {
@@ -161,7 +164,7 @@ export const projects = [
         description: "Invited by the Harmony NLP research team to attend AIUK 2025 — the UK's national showcase of AI and data science hosted by The Alan Turing Institute. Compensated £1,250 for contributing to mental health AI research.",
         badges: ["AI UK", "The Alan Turing Institute", "Recognition"],
         link: "https://www.turing.ac.uk/ai-uk",
-        image: "src/components/photos/aiuk2025.png",
+        image: aiuk2025Img,
         date: "2025",
     },
     {
@@ -169,7 +172,7 @@ export const projects = [
         description: "Won Natural Language Processing competition with £250 prize by improving psychology survey question similarity algorithm, reducing MAE from 24 to 20.544. Organized by researchers from UCL, Ulster University, and Fast Data Science.",
         badges: ["NLP", "Competition", "Research"],
         link: "https://harmonydata.ac.uk/matching-challenge-winner-announcement/",
-        image: "src/components/photos/nlpchallenge.png",
+        image: nlpchallengeImg,
     },
     {
         title: "Medical AI Research",
@@ -197,7 +200,7 @@ export const projects = [
         description: "Implemented advanced GAN architectures (SRResNet and SRGAN) for image super-resolution, achieving high-quality upscaling of low-resolution images with remarkable detail preservation and also presented the first baselines for the Frechet Inception Distance (FID).",
         badges: ["Computer Vision", "GANs", "Deep Learning"],
         link: "https://github.com/rafipatel/Image-Super-Resolution-using-GANs",
-        image: "src/components/photos/SRGAN.png",
+        image: srganImg,
     },
     {
         title: "Chatbot using Seq2Seq & Transformer",
