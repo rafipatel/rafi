@@ -242,7 +242,7 @@ The RAFA backend is deployed on **Render** (free tier) as a FastAPI application.
 
 **Repository**: [rafipatel/groq-proxy](https://github.com/rafipatel/groq-proxy)  
 **Hosted On**: Render (Free Plan)  
-**Service URL**: Your Render FastAPI service endpoint  
+**Backend Service URL++: Set via environment variable `VITE_RAFA_API_URL`
 
 #### API Endpoints
 
@@ -260,6 +260,16 @@ The RAFA backend is deployed on **Render** (free tier) as a FastAPI application.
 ```bash
 GROQ_API_KEY=<your-groq-api-key>
 ```
+#### Frontend Configuration
+
+**For local development**, copy `.env.example` to `.env.local` and fill in your values:
+
+```bash
+cp .env.example .env.local
+# Edit .env.local and add your Render backend URL
+```
+
+**Note**: `.env.local` is in `.gitignore` and should never be committed to version control.
 
 **Groq API Key**:
 - Obtained from [Groq Console](https://console.groq.com/keys)
@@ -307,13 +317,17 @@ Portfolio (Displays Response)
    - Free tier includes auto-deploys from main branch
 
 5. **Get your API URL**:
-   - Render provides a public URL (e.g., `https://your-service.onrender.com`)
+   - Store your backend API endpoint URL in a `.env.local` file (see `.env.example`)
+- Use the environment variable `VITE_RAFA_API_URL` in your frontend code
+- Call `/chat` and `/get-key` endpoints from the portfolio
    - Use this to call `/chat` and `/get-key` endpoints from the portfolio
 
 #### API Request Example
 
 ```bash
-curl -X POST https://your-service.onrender.com/chat \
+curl -X POST $VITE_RAFA_API_URL/chat \260
+
+
   -H "Content-Type: application/json" \
   -d '{
     "messages": [
