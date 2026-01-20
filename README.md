@@ -1,73 +1,186 @@
-# Welcome to your Lovable project
+# Portfolio Website
 
-## Project info
+A modern, responsive portfolio website built with cutting-edge web technologies. This project showcases professional work, projects, and skills with an elegant, high-performance design.
 
-**URL**: https://lovable.dev/projects/e09fa95a-9bf0-4510-86aa-e065ad856203
+## Overview
 
-## How can I edit this code?
+This portfolio website is a demonstration of full-stack web development capabilities, featuring:
 
-There are several ways of editing your application.
+- **Modern UI/UX**: Clean, minimalist design with smooth animations and transitions
+- **Responsive Design**: Fully responsive across all devices and screen sizes
+- **Performance Optimized**: Fast load times and optimized bundle sizes
+- **Type-Safe**: Built with TypeScript for robust, maintainable code
+- **Styling**: Tailwind CSS for utility-first, scalable styling with Shadcn UI components
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e09fa95a-9bf0-4510-86aa-e065ad856203) and start prompting.
+- **Frontend Framework**: React with Vite for blazing-fast development
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Shadcn UI
+- **Build Tool**: Vite
+- **Package Manager**: Bun
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js (v16 or higher) - [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- npm or Bun
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1. **Clone the repository**
+   ```bash
+   git clone <YOUR_GIT_URL>
+   cd rafi
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+2. **Navigate to project directory**
+   ```bash
+   cd rafi
+   ```
+
+3. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   bun install
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   bun run dev
+   ```
+
+   The development server will start with hot module reloading (HMR) for instant feedback on changes.
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server with HMR
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+### Project Structure
+
+```
+rafi/
+├── src/              # Source files
+│   ├── components/   # React components
+│   ├── pages/        # Page components
+│   └── App.tsx       # Main application component
+├── public/           # Static assets
+├── index.html        # HTML entry point
+├── tailwind.config.ts  # Tailwind CSS configuration
+├── tsconfig.json     # TypeScript configuration
+└── vite.config.ts    # Vite configuration
+```
+
+## Editing Code
+
+There are several ways to modify and extend this project:
+
+### Local Development with IDE
+
+Clone the repository and use your preferred code editor:
+
+```bash
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+cd rafi
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Make changes in your IDE and they will automatically reload in the browser thanks to Vite's HMR.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### GitHub Web Editor
 
-**Use GitHub Codespaces**
+1. Navigate to any file in the repository
+2. Click the pencil (edit) icon
+3. Make your changes
+4. Commit directly to the main branch
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### GitHub Codespaces
 
-## What technologies are used for this project?
+Develop directly in the browser:
 
-This project is built with:
+1. Go to the main repository page
+2. Click "Code" (green button)
+3. Select "Codespaces" tab
+4. Click "New codespace"
+5. Edit files and commit changes
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+The project is deployed to GitHub Pages automatically on every commit to the main branch.
 
-Simply open [Lovable](https://lovable.dev/projects/e09fa95a-9bf0-4510-86aa-e065ad856203) and click on Share -> Publish.
+### Manual Deployment
 
-## Can I connect a custom domain to my Lovable project?
+```bash
+npm run build
+```
 
-Yes, you can!
+This creates an optimized production build in the `dist` directory.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Custom Domain
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+To connect a custom domain:
+
+1. Update your domain's DNS records to point to GitHub Pages
+2. Add the domain in repository settings
+3. Enable HTTPS in repository settings
+
+See [GitHub Pages Documentation](https://docs.github.com/en/pages) for detailed instructions.
+
+## Performance
+
+Optimizations included:
+
+- Tree-shaking for minimal bundle size
+- Code splitting with Vite
+- Lazy loading of components
+- Optimized images and assets
+- CSS purging with Tailwind
+
+## Browser Support
+
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## AI Tech Stacks
+
+- **Antigravity**: Advanced deployment and infrastructure automation
+- **Claude**: AI-powered development assistance and code generation
+- **Lovable**: UI/UX design and rapid prototyping
+
+## Contributing
+
+Contributions are welcome! Feel free to:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+MIT License - feel free to use this project as a template or reference.
+
+## Live Demo
+
+Visit the live portfolio: [https://rafipatel.github.io/rafi/](https://rafipatel.github.io/rafi/)
+
+## Support
+
+For issues, questions, or suggestions, please open an issue on GitHub.
+
+---
+
+**Built with ❤️ by Rafi Patel**
