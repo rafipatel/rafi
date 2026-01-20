@@ -235,6 +235,100 @@ This portfolio is currently a **frontend-only static site on GitHub Pages**. RAF
 - Groq API key for authentication
 - API endpoint for portfolio to call RAFA
 - Database for storing refined profile context
+- 
+### Backend Hosting & API Credentials
+
+The RAFA backend is deployed on **Render** (free tier) as a FastAPI application.
+
+**Repository**: [rafipatel/groq-proxy](https://github.com/rafipatel/groq-proxy)  
+**Hosted On**: Render (Free Plan)  
+**Service URL**: Your Render FastAPI service endpoint  
+
+#### API Endpoints
+
+| Endpoint | Method | Purpose |
+|----------|--------|----------|
+| `/chat` | POST | Send messages to RAFA, get AI responses |
+| `/get-key` | GET | Retrieve Groq API key (for authenticated clients) |
+| `/docs` | GET | Interactive API documentation (Swagger UI) |
+| `/redoc` | GET | ReDoc API documentation |
+
+#### API Credentials
+
+**Environment Variables** (stored securely on Render):
+
+```bash
+GROQ_API_KEY=<your-groq-api-key>
+```
+
+**Groq API Key**:
+- Obtained from [Groq Console](https://console.groq.com/keys)
+- Uses `llama-3.3-70b-versatile` model (free tier available)
+- Requires signing up at console.groq.com
+
+#### Backend Architecture
+
+```
+Portfolio (Frontend - GitHub Pages)
+    |
+    | HTTPS Request
+    v
+Render FastAPI Service (groq-proxy)
+    |
+    | API Call + GROQ_API_KEY
+    v
+Groq LLM API (llama-3.3-70b-versatile)
+    |
+    | LLM Response
+    v
+Render Service → Backend Response
+    |
+    v
+Portfolio (Displays Response)
+```
+
+#### How to Deploy Your Own RAFA Backend
+
+1. **Clone groq-proxy repo**:
+   ```bash
+   git clone https://github.com/rafipatel/groq-proxy.git
+   ```
+
+2. **Set up Render account**:
+   - Go to [render.com](https://render.com)
+   - Connect your GitHub account
+   - Create a new Web Service from your groq-proxy fork
+
+3. **Configure environment variables** on Render:
+   - Set `GROQ_API_KEY` to your key from Groq console
+
+4. **Deploy**:
+   - Render automatically deploys from git push
+   - Free tier includes auto-deploys from main branch
+
+5. **Get your API URL**:
+   - Render provides a public URL (e.g., `https://your-service.onrender.com`)
+   - Use this to call `/chat` and `/get-key` endpoints from the portfolio
+
+#### API Request Example
+
+```bash
+curl -X POST https://your-service.onrender.com/chat \
+  -H "Content-Type: application/json" \
+  -d '{
+    "messages": [
+      {"role": "user", "content": "Tell me about Rafi's skills"}
+    ]
+  }'
+```
+
+#### Security Notes
+
+- **API Key Protection**: Never expose `GROQ_API_KEY` in frontend code
+- **CORS Configuration**: Backend CORS allows `*` origins (configure in production)
+- **Rate Limiting**: Implement rate limiting for production use
+- **Authentication**: Consider adding API key validation for frontend requests
+- 
 
 - 
 
