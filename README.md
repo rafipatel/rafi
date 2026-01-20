@@ -181,6 +181,63 @@ Visit the live portfolio: [https://rafipatel.github.io/rafi/](https://rafipatel.
 
 For issues, questions, or suggestions, please open an issue on GitHub.
 
+## RAFA: AI Profile Assistant with Groq
+
+**RAFA** is an AI-powered assistant system that uses **Groq's lightning-fast LLM inference** to answer questions about the portfolio owner's profile and expertise.
+
+### Architecture & Deployment
+
+RAFA operates independently from this portfolio website:
+
+- **Frontend**: This portfolio website (React + Vite) is deployed on **GitHub Pages** as a static site
+- **AI Backend**: RAFA runs separately using **Groq API** for high-speed LLM inference
+- **Communication**: The portfolio can integrate API calls to RAFA when deployed on a full-stack platform with backend support
+
+### Groq Integration
+
+**Groq** provides:
+- Ultra-fast LLM inference (token generation in milliseconds)
+- Free tier for development and testing
+- Seamless integration with popular LLM models
+- Perfect for building responsive AI applications
+
+### How RAFA Works
+
+1. **Profile Context**: RAFA is trained/fine-tuned with information about your skills, experience, and projects
+2. **Query Processing**: When asked questions about your profile, RAFA uses Groq to generate contextual responses
+3. **Real-time Responses**: Groq's speed enables instant, conversational replies
+
+### Integration with Portfolio
+
+When this portfolio evolves to include interactive features:
+
+```
+User Query on Portfolio
+        |
+        v
+RAFA AI System (Groq Backend)
+        |
+        v
+Instant Response
+```
+
+### Tech Stack for RAFA
+
+- **LLM Provider**: Groq (free tier)
+- **Inference Speed**: ~10x faster than traditional cloud LLMs
+- **Use Case**: Profile Q&A, skill-based recommendations, experience highlights
+- **Deployment**: Serverless or containerized backend (separate from GitHub Pages)
+
+### Current Setup
+
+This portfolio is currently a **frontend-only static site on GitHub Pages**. RAFA integration would require:
+- Backend API service (Node.js, Python, etc.)
+- Groq API key for authentication
+- API endpoint for portfolio to call RAFA
+- Database for storing refined profile context
+
+- 
+
 ---
 
 **Built with ❤️ by Rafi Patel**
