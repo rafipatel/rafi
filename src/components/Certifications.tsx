@@ -2,53 +2,15 @@ import { motion } from "framer-motion";
 import { useScrollReveal, scrollVariants } from "@/hooks/use-scroll-reveal";
 import { Award } from "lucide-react";
 import InteractiveElement from "@/components/InteractiveElement";
+import { certifications } from "@/data/portfolioData";
 
 const Certifications = () => {
   const { ref, isInView } = useScrollReveal();
 
-  const certifications = [
-    {
-      date: "May 2025 - Present",
-      title: "AI Agents Course",
-      organization: "HuggingFace",
-      description: "Advanced training in building autonomous AI agents, learning cutting-edge techniques in agent design, tool use, and multi-agent systems.",
-    },
-    {
-      date: "Aug 2023",
-      title: "Langchain for LLM Application Development",
-      organization: "DeepLearning.ai",
-      description: "Specialized course on building LLM-powered applications using Langchain framework, covering chains, agents, and memory systems.",
-    },
-    {
-      date: "Oct 2022",
-      title: "Neural Networks and Deep Learning",
-      organization: "DeepLearning.ai, Coursera",
-      description: "Comprehensive deep learning specialization covering neural network architectures, backpropagation, and optimization techniques.",
-    },
-    {
-      date: "Jun 2022",
-      title: "Machine Learning",
-      organization: "Stanford Online (Andrew Ng), Coursera",
-      description: "Foundational machine learning course covering supervised learning, unsupervised learning, and best practices in ML.",
-    },
-    {
-      date: "Sep 2022",
-      title: "Python Master Certification Course",
-      organization: "Perfect E-Learning",
-      description: "Advanced Python programming certification covering data structures, OOP, and software development best practices.",
-    },
-    {
-      date: "Jan 2021",
-      title: "Python and ML for Data Science",
-      organization: "Kaggle",
-      description: "Practical course on applying Python and machine learning techniques to data science problems and competitions.",
-    },
-  ];
-
   return (
     <section id="certifications" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      
+
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.div
           initial={scrollVariants.floatUp.initial}
@@ -72,15 +34,15 @@ const Certifications = () => {
                 <motion.div
                   initial={variant.initial}
                   animate={isInView ? variant.animate : {}}
-                  transition={{ 
-                    duration: 0.8, 
+                  transition={{
+                    duration: 0.8,
                     delay: index * 0.1,
                     ease: [0.22, 1, 0.36, 1]
                   }}
                   className="glass p-6 rounded-xl h-full group"
                 >
                   <div className="flex items-start space-x-4">
-                    <motion.div 
+                    <motion.div
                       className="flex-shrink-0"
                       whileHover={{ scale: 1.1, rotate: -5 }}
                       transition={{ duration: 0.3 }}

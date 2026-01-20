@@ -1,33 +1,15 @@
 import { motion } from "framer-motion";
 import { useScrollReveal, scrollVariants } from "@/hooks/use-scroll-reveal";
 import InteractiveElement from "@/components/InteractiveElement";
+import { skills, personalDetails, aboutMe, personalInfo } from "@/data/portfolioData";
 
 const About = () => {
   const { ref, isInView } = useScrollReveal();
 
-  const skills = [
-    { name: "Python", level: 95 },
-    { name: "Machine Learning", level: 75 },
-    { name: "Computer Vision", level: 80 },
-    { name: "Natural Language Processing", level: 90 },
-    { name: "Reinforcement Learning", level: 50 },
-    { name: "Amazon Web Services", level: 70 },
-  ];
-
-  const info = [
-    { label: "Profile", value: "Data Science, Machine Learning & Artificial Intelligence" },
-    { label: "Domain", value: "Medical, Ecommerce, Research & Customer Services" },
-    { label: "Education", value: "Masters of Science in Artificial Intelligence" },
-    { label: "Frameworks", value: "Pytorch, TensorFlow, Flask, FastAPI" },
-    { label: "Other Skills", value: "AWS, Azure, MongoDB, Excel, Git, SQL, Kibana" },
-    { label: "Interest", value: "Sports, Fitness, Reading" },
-    { label: "Language", value: "English, Urdu, Hindi, Marathi" },
-  ];
-
   return (
     <section id="about" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card/50" />
-      
+
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.div
           initial={scrollVariants.floatUp.initial}
@@ -51,10 +33,10 @@ const About = () => {
             >
               <div>
                 <div className="mb-6">
-                  <p className="text-primary text-sm font-semibold mb-2">Name: <span className="text-foreground font-normal">Rafi Ahmed</span></p>
-                  <p className="text-primary text-sm font-semibold mb-2">Job Role: <span className="text-foreground font-normal">AI/ML Engineer</span></p>
-                  <p className="text-primary text-sm font-semibold mb-2">Experience: <span className="text-foreground font-normal">1 Year 11 Months</span></p>
-                  <p className="text-primary text-sm font-semibold">Address: <span className="text-foreground font-normal">London, United Kingdom</span></p>
+                  <p className="text-primary text-sm font-semibold mb-2">Name: <span className="text-foreground font-normal">{aboutMe.name}</span></p>
+                  <p className="text-primary text-sm font-semibold mb-2">Job Role: <span className="text-foreground font-normal">{aboutMe.jobRole}</span></p>
+                  <p className="text-primary text-sm font-semibold mb-2">Experience: <span className="text-foreground font-normal">{aboutMe.experience}</span></p>
+                  <p className="text-primary text-sm font-semibold">Address: <span className="text-foreground font-normal">{aboutMe.address}</span></p>
                 </div>
 
                 <h3 className="text-xl font-bold text-primary mb-6">Skills</h3>
@@ -64,8 +46,8 @@ const About = () => {
                       key={skill.name}
                       initial={{ opacity: 0, x: -30, rotate: -3 }}
                       animate={isInView ? { opacity: 1, x: 0, rotate: 0 } : {}}
-                      transition={{ 
-                        duration: 0.7, 
+                      transition={{
+                        duration: 0.7,
                         delay: 0.4 + index * 0.08,
                         ease: [0.22, 1, 0.36, 1]
                       }}
@@ -97,20 +79,17 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-muted-foreground leading-relaxed">
-              A MSc Artificial Intelligence graduate from City, University of London, selected for a prestigious Machine Learning in Lung Cancer Research Internship at University related to UK Cancer Research, TracerX. 
-              With nearly 2 years of experience in AI and machine learning, I've worked on diverse projects from computer vision to NLP. My journey includes roles at Mercor, Curify-AI, Webomates and ResoluteAI, where I developed and deployed ML models for real-world applications. 
-              Proficient in Python, PyTorch, and TensorFlow, I specialize in several AWS cloud services, deep learning, computer vision, and data science. I'm passionate about leveraging AI to solve complex problems and drive innovation in technology. 
-              Although, I like working in AI in general, I am primarily inclined towards Research AI & Medical AI as my primary interests.
+              {aboutMe.bio}
             </p>
 
             <div className="space-y-3">
-              {info.map((item, index) => (
+              {personalDetails.map((item, index) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, x: 20, y: 10 }}
                   animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
-                  transition={{ 
-                    duration: 0.6, 
+                  transition={{
+                    duration: 0.6,
                     delay: 0.6 + index * 0.06,
                     ease: [0.22, 1, 0.36, 1]
                   }}
@@ -129,7 +108,7 @@ const About = () => {
                 transition={{ duration: 0.9, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
                 className="glass p-6 rounded-xl"
               >
-                <p className="text-4xl font-bold text-primary mb-2">25+</p>
+                <p className="text-4xl font-bold text-primary mb-2">{personalInfo.projectsCompleted}</p>
                 <p className="text-muted-foreground">Projects completed</p>
               </motion.div>
             </InteractiveElement>

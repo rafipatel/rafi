@@ -7,8 +7,9 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CustomCursor from "@/components/CustomCursor";
-import AnimatedBackground from "./components/AnimatedBackground"; // relative path
-// ✅ import it
+import AnimatedBackground from "./components/AnimatedBackground";
+import LinkedInPoster from "./pages/LinkedInPoster";
+import ChatAssistant from "@/components/ChatAssistant";
 
 const queryClient = new QueryClient();
 
@@ -26,9 +27,13 @@ const App = () => (
         <BrowserRouter basename="/rafi">
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/linkedin-poster" element={<LinkedInPoster />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
+
+        {/* AI Chatbot */}
+        <ChatAssistant />
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
