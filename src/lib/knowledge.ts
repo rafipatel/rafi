@@ -23,7 +23,19 @@ export const getSystemPrompt = () => {
 
     const recentExperiences = experiences
         .slice(0, 3)
-        .map(exp => `- ${exp.title} at ${exp.company}: ${exp.points[0]}`)
+        .map(exp => {
+            const cleanPrimaryPoint = exp.points[0].replace('###', '').trim();
+            return `- ${exp.title} at ${exp.company}: ${cleanPrimaryPoint}`;
+        })
+        .join("\n");
+
+    const allExperiencesFormatted = experiences
+        .map(exp => {
+            const pointsList = exp.points
+                .map(p => `- ${p.replace('###', '').trim()}`)
+                .join("\n  ");
+            return `- ${exp.title} at ${exp.company} (${exp.date}):\n  ${pointsList}`;
+        })
         .join("\n");
 
     const topAchievements = [
@@ -78,7 +90,7 @@ NOTABLE PROJECTS:
 ${notableProjects}
 
 ALL EXPERIENCE:
-${experiences.map(exp => `- ${exp.title} at ${exp.company} (${exp.date})`).join("\n")}
+${allExperiencesFormatted}
 
 EDUCATION:
 ${education.map(edu => `- ${edu.title} from ${edu.institution} (${edu.grade}) (${edu.date})`).join("\n")}

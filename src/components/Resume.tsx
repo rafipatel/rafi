@@ -72,13 +72,24 @@ const Resume = ({ onViewResume }: ResumeProps) => {
                         ) : (
                           <span className="text-primary font-medium">{exp.company}</span>
                         )}
-                        <ul className="mt-4 space-y-2 text-muted-foreground text-sm">
-                          {exp.points.map((point, i) => (
-                            <li key={i} className="flex">
-                              <span className="text-primary mr-2 flex-shrink-0">•</span>
-                              <span>{point}</span>
-                            </li>
-                          ))}
+                        <ul className="mt-4 space-y-3 text-muted-foreground text-sm">
+                          {exp.points.map((point, i) => {
+                            const isHeader = point.startsWith('###');
+                            const cleanPoint = isHeader ? point.replace('###', '').trim() : point;
+
+                            return (
+                              <li key={i} className={`${isHeader ? 'mt-4 first:mt-0' : 'flex'}`}>
+                                {isHeader ? (
+                                  <h5 className="font-bold text-foreground text-base mb-1">{cleanPoint}</h5>
+                                ) : (
+                                  <>
+                                    <span className="text-primary mr-2 flex-shrink-0">•</span>
+                                    <span>{cleanPoint}</span>
+                                  </>
+                                )}
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
                     </div>

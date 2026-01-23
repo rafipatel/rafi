@@ -7,7 +7,7 @@ import srganImg from "@/components/photos/SRGAN.png";
 export const personalInfo = {
     name: "Rafi Ahmed",
     displayName: "Raafi Riyaz",
-    currentRole: "ML Engineer (Independent Contractor)",
+    currentRole: "Machine Learning Engineer",
     currentCompany: "Mercor",
     location: "London, United Kingdom",
     totalExperience: "Nearly 2 years",
@@ -18,7 +18,7 @@ export const personalInfo = {
 export const roles = ["ML Engineer", "AI Engineer", "Data Scientist"];
 
 export const tagline = {
-    primary: "MSc AI from London | ML Engineer @ Mercor",
+    primary: "MSc AI from London | Machine Learning Engineer @ Mercor",
     secondary: "With over 2 years of experience",
 };
 
@@ -60,15 +60,21 @@ While I enjoy AI broadly, my primary interests lie in Research AI and Medical AI
 export const experiences = [
     {
         date: "Oct 2025 - Present",
-        title: "ML Engineer (Independent Contractor)",
+        title: "Machine Learning Engineer",
         company: "Mercor",
         link: "https://www.mercor.com/",
         points: [
-            "Contributing to Meta AI Research’s expansion of OpenAI’s MLE-bench through Project Vulcan and Project Launchpad by converting Kaggle and ML competitions into standardized, Docker-containerized benchmark tasks with reproducible setups and evaluation metrics.",
-            "Extended MLE-bench with recent NeurIPS, ICML, and ICLR datasets across computer vision, NLP, time-series, and tabular domains to reflect modern ML challenges.",
-            "Actively worked with a Jupiter mega-cluster powered by 6× NVIDIA H100 GPUs on AWS, enabling rapid large-scale experimentation.",
-            "Merged 30+ pull requests covering task conversions, dataset integrations, bug fixes, evaluation improvements, and documentation updates.",
+            "### Rubrics Academy Fellow",
+            "Focused on complex prompt reasoning and technical problem-solving through first-principles architectural design with strict constraint on using AI tools.",
+            "Engaged in rigorous technical challenges focused on first-principles reasoning and human-led architectural design with strict constraint on using AI tools.",
+            "### Machine Learning Engineer (Project Launchpad)",
+            "Contributed to Meta AI Research’s expansion of OpenAI’s MLE-bench by analyzing buggy code blocks and implementing fixes in LLM-generated solutions for complex ML tasks.",
+            "Utilized the AIRA-dojo development environment and Jupiter mega-cluster powered by 6× NVIDIA H100 GPUs on AWS for rapid large-scale experimentation.",
             "Developed high-quality plan-and-code pairs for post-training data and supported collection of debugging traces from fixing LLM-generated Python code.",
+            "Merged 30+ pull requests covering task conversions, dataset integrations, bug fixes, and evaluation improvements.",
+            "### Machine Learning Engineer (Project Vulcan)",
+            "Collaborated with Meta to extend OpenAI’s MLE-bench into a more comprehensive benchmark by transforming Kaggle competitions into reproducible, Docker-based evaluation tasks.",
+            "Extended MLE-bench with recent NeurIPS, ICML, and ICLR datasets across computer vision, NLP, time-series, and tabular domains to reflect modern ML challenges.",
         ],
     },
 
