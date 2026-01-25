@@ -23,7 +23,7 @@ const App = () => (
         {/* ✅ Add the animated background here */}
         <AnimatedBackground />
 
-        <BrowserRouter basename="/rafi">
+        <BrowserRouter basename="/">
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
