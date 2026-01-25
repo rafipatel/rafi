@@ -161,7 +161,7 @@ const Hero = () => {
                 className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground dark:border-secondary-dark dark:text-secondary-dark dark:hover:bg-secondary-dark/80 dark:hover:text-secondary-foreground"
                 asChild
               >
-                <a href="https://docs.google.com/document/d/1sNF1vzBpYc1qbRfekIac0mYG5mOGdx-V/export?format=pdf" download className="flex items-center">
+                <a href="/resume.pdf?v=2" download="Rafi_Ahmed_Patel_Resume.pdf" className="flex items-center">
                   <Download className="mr-2 h-5 w-5" />
                   Download CV
                 </a>

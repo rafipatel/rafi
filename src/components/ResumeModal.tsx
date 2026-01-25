@@ -24,8 +24,8 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
                 asChild
               >
                 <a
-                  href="https://docs.google.com/document/d/1sNF1vzBpYc1qbRfekIac0mYG5mOGdx-V/export?format=pdf"
-                  download
+                  href="/resume.pdf?v=2"
+                  download="Rafi_Ahmed_Patel_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -44,11 +44,11 @@ const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
             </div>
           </div>
         </DialogHeader>
-        
+
         <ScrollArea className="h-full p-6">
           <div className="prose prose-invert max-w-none">
             <iframe
-              src="https://docs.google.com/document/d/e/2PACX-1vS-BxYeE0l_l4EeZIDiQLKZlw2-lwNPeHj_zi5EpxWnOKnciREOG1bVka4Uc3gurg/pub?embedded=true"
+              src="/resume.pdf?v=2"
               className="w-full h-[70vh] rounded-lg border border-border/50"
               title="Resume"
             />

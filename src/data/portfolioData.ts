@@ -236,7 +236,7 @@ export const socialLinks = {
     github: "https://github.com/rafipatel",
     repoUrl: "https://github.com/rafipatel/rafi",
     huggingface: "https://huggingface.co/Rafii",
-    cv: "https://docs.google.com/document/d/1sNF1vzBpYc1qbRfekIac0mYG5mOGdx-V/export?format=pdf"
+    cv: "/resume.pdf?v=2"
 };
 
 export const certifications = [
