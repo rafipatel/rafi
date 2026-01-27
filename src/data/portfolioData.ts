@@ -277,3 +277,34 @@ export const certifications = [
         description: "Practical course on applying Python and machine learning techniques to data science problems and competitions.",
     },
 ];
+
+export const openSourceContributions = [
+    {
+        title: "Exo (40k+ stars)",
+        role: "Contributor",
+        date: "Jan 2026",
+        description: "Architected multimodal support by integrating **Vision-Language Models**.",
+        link: "https://github.com/exo-explore/exo/pull/1080",
+    },
+    {
+        title: "MuseTalk (5k+ stars)",
+        role: "Contributor",
+        date: "Nov 2025",
+        description: "Added **Docker support** deployment support and **FastAPI** serving.",
+        link: "https://github.com/TMElyralab/MuseTalk/pull/394",
+    },
+    {
+        title: "Guest Speaker at JMI University",
+        role: "Guest Speaker",
+        date: "Jan 2025",
+        description: "Introduction to RL session for final-year BTech students with Bytes Classes.",
+        link: "https://www.linkedin.com/posts/raafi-riyaz-bb2954202_grateful-to-have-recently-delivered-a-activity-7262204530212106243-eMVD",
+    },
+    {
+        title: "Technical Author",
+        role: "Author",
+        date: "Mar 2023",
+        description: "Authored articles for AI in the software testing domain for Webomates, USA.",
+        link: "https://www.webomates.com/author/rafi/",
+    },
+];

@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Resume from "@/components/Resume";
 import Achievements from "@/components/Achievements";
+import OpenSourceContributions from "@/components/OpenSourceContributions";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
@@ -24,6 +25,7 @@ const Index = () => {
       <About />
       <Resume onViewResume={() => setIsResumeModalOpen(true)} />
       <Achievements />
+      <OpenSourceContributions />
       <Projects />
       <Certifications />
       <Contact />
