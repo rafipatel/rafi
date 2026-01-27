@@ -140,13 +140,13 @@ export const education = [
         date: "2023-2024",
         title: "Master of Science in Artificial Intelligence (MSc AI)",
         institution: "City, University of London",
-        grade: "Grade: Merit (68.5)",
+        grade: "Grade: Merit",
     },
     {
         date: "2019-2021",
         title: "Bachelor of Science in Information Technology (BSc IT)",
         institution: "University of Mumbai",
-        grade: "Grade: 8.5 CGPA",
+        grade: "Grade: Distinction",
     },
     {
         date: "2016-2019",
@@ -236,7 +236,7 @@ export const socialLinks = {
     github: "https://github.com/rafipatel",
     repoUrl: "https://github.com/rafipatel/rafi",
     huggingface: "https://huggingface.co/Rafii",
-    cv: "/resume.pdf?v=2"
+    cv: "https://drive.google.com/file/d/14RZDtNFdu91xZHUsfjDPN7rgwSZjOTuG/view?usp=sharing"
 };
 
 export const certifications = [

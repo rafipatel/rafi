@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Download } from "lucide-react";
 import { useState, useEffect } from "react";
 import MagneticButton from "@/components/MagneticButton";
-import { roles, personalInfo, tagline } from "@/data/portfolioData";
+import { roles, personalInfo, tagline, socialLinks } from "@/data/portfolioData";
 
 const HuggingFaceIcon = () => (
   <svg className="w-5 h-5" viewBox="0 0 95 88" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -161,9 +161,9 @@ const Hero = () => {
                 className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground dark:border-secondary-dark dark:text-secondary-dark dark:hover:bg-secondary-dark/80 dark:hover:text-secondary-foreground"
                 asChild
               >
-                <a href="/resume.pdf?v=2" download="Rafi_Resume.pdf" className="flex items-center">
+                <a href={socialLinks.cv} target="_blank" rel="noopener noreferrer" className="flex items-center">
                   <Download className="mr-2 h-5 w-5" />
-                  Download CV
+                  View CV
                 </a>
               </Button>
             </MagneticButton>
