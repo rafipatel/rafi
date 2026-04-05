@@ -7,6 +7,7 @@ import Achievements from "@/components/Achievements";
 import OpenSourceContributions from "@/components/OpenSourceContributions";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
+import CurrentlyWorkingOn from "@/components/CurrentlyWorkingOn";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ResumeModal from "@/components/ResumeModal";
@@ -22,6 +23,7 @@ const Index = () => {
       <Navigation />
       <SourceCodeBadge />
       <Hero onViewResume={() => setIsResumeModalOpen(true)} />
+      <CurrentlyWorkingOn />
       <About />
       <Resume onViewResume={() => setIsResumeModalOpen(true)} />
       <Achievements />

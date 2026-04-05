@@ -166,9 +166,9 @@ export const education = [
 export const projects = [
     {
         title: "VideoVoice Cloning & Translation",
-        description: "End-to-end video translation and voice cloning pipeline using Whisper large-v3 for transcription, Google Translate, and Chatterbox multilingual TTS for voice cloning. Supports 11+ languages with temporal alignment and automated audio-video synchronization.",
+        description: "End-to-end video translation and voice cloning pipeline using Whisper large-v3 for transcription, Google Translate, and Chatterbox, Qwen TTS for voice cloning. Supports 23 languages with temporal alignment, voice cloning and automated audio-video synchronization.",
         badges: ["Computer Vision", "NLP", "Voice Clone"],
-        link: "https://huggingface.co/spaces/Rafii/VideoTrans",
+        link: "https://rafipatel.github.io/VideoVoice/",
         image: videoTransImg,
         date: "December 2025",
     },
@@ -322,3 +322,82 @@ export const openSourceContributions = [
         link: "https://www.webomates.com/author/rafi/",
     },
 ];
+
+export type CurrentItemType = "building" | "reading" | "scaling" | "working" | "fellowship";
+
+export interface CurrentItemData {
+    iconName: "brain" | "clapperboard" | "rocket" | "book-open" | "building-2";
+    title: string;
+    subtitle: string;
+    description: string;
+    badges: string[];
+    link?: string;
+    accentColor: string;
+    type: CurrentItemType;
+}
+
+export const currentlyWorkingOn: CurrentItemData[] = [
+    {
+        iconName: "brain",
+        title: "RL Fellowship",
+        subtitle: "General Reasoning (gr.inc)",
+        description:
+            "Selected for the Reinforcement Learning Fellowship at General Reasoning, a startup led by Ross Taylor — Meta Llama's reasoning lead and founder of Papers with Code. GR works on advancing RL research and building next-generation reasoning systems over long-horizon tasks.",
+        badges: ["Reinforcement Learning", "Fellowship", "Research"],
+        link: "https://gr.inc",
+        accentColor: "10 80% 55%",
+        type: "fellowship",
+    },
+    {
+        iconName: "clapperboard",
+        title: "VideoVoice",
+        subtitle: "AI Video Translation & Voice Cloning",
+        description:
+            "Research-engineering the limits of open source models for single-speaker TTS for Reels, Shorts & TikToks, building a pipeline that ambitiously rivals ElevenLabs with Whisper, Chatterbox, Qwen3-TTS, and real-time voice cloning across 23 languages.",
+        badges: ["TTS Research", "Voice Cloning", "Qwen3-TTS", "Open Source"],
+        link: "https://rafipatel.github.io/VideoVoice/",
+        accentColor: "173 80% 40%",
+        type: "building",
+    },
+    {
+        iconName: "rocket",
+        title: "Feedhire",
+        subtitle: "AI-Powered Global Job Discovery",
+        description:
+            "Scaling an AI-powered job discovery platform using NLP and open-source LLMs. Now hitting 2000+ global traffic and 200+ registered users across the US, UK, and India with automated job post extraction.",
+        badges: ["NLP", "LLMs", "Docker", "Oracle Cloud"],
+        link: "https://feedhire.me/",
+        accentColor: "38 92% 50%",
+        type: "scaling",
+    },
+    {
+        iconName: "book-open",
+        title: "AI Engineering",
+        subtitle: "by Chip Huyen",
+        description:
+            "Deep-diving into production AI systems — covering LLM deployment patterns, evaluation frameworks, prompt engineering, and building reliable AI applications at scale.",
+        badges: ["LLMs", "MLOps", "Production AI", "Book"],
+        link: "https://www.oreilly.com/library/view/ai-engineering/9781098166298/",
+        accentColor: "270 70% 55%",
+        type: "reading",
+    },
+    {
+        iconName: "building-2",
+        title: "Mercor — ML Engineer",
+        subtitle: "Meta AI Research Collaboration",
+        description:
+            "Contributing to Meta AI's expansion of OpenAI's MLE-bench, building high-quality ML benchmarks across computer vision, NLP, and time-series domains.",
+        badges: ["Meta AI", "Benchmarks", "H100 GPUs", "Research"],
+        link: "https://www.mercor.com/",
+        accentColor: "217 91% 60%",
+        type: "working",
+    },
+];
+
+export const currentTypeLabels: Record<CurrentItemType, string> = {
+    fellowship: "Fellowship",
+    building: "Building",
+    reading: "Reading",
+    scaling: "Scaling",
+    working: "Working at",
+};

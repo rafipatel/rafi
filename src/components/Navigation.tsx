@@ -11,7 +11,7 @@ const Navigation = () => {
       setScrolled(window.scrollY > 50);
 
       // Determine active section
-      const sections = ["home", "about", "resume", "achievements", "projects", "certifications", "contact"];
+      const sections = ["home", "current", "about", "resume", "achievements", "projects", "certifications", "contact"];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -30,6 +30,7 @@ const Navigation = () => {
 
   const navItems = [
     { id: "home", label: "Home" },
+    { id: "current", label: "Current" },
     { id: "about", label: "About" },
     { id: "resume", label: "Resume" },
     { id: "achievements", label: "Achievements" },
