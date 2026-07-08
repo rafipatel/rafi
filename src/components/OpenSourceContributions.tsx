@@ -1,99 +1,71 @@
-import { motion } from "framer-motion";
-import { useScrollReveal, scrollVariants } from "@/hooks/use-scroll-reveal";
-import { Code, Users, Mic, BookOpen } from "lucide-react";
-import InteractiveElement from "@/components/InteractiveElement";
+import { Code, Users, Mic, BookOpen, type LucideIcon } from "lucide-react";
 import { openSourceContributions } from "@/data/portfolioData";
 
+const getIcon = (role: string): LucideIcon => {
+  switch (role.toLowerCase()) {
+    case "contributor":
+      return Code;
+    case "guest speaker":
+      return Mic;
+    case "author":
+      return BookOpen;
+    default:
+      return Users;
+  }
+};
+
 const OpenSourceContributions = () => {
-    const { ref, isInView } = useScrollReveal();
+  return (
+    <section id="contributions" className="mt-16 scroll-mt-20">
+      <h2 className="mb-5 font-serif text-2xl font-semibold text-foreground">Open Source</h2>
 
-    const getIcon = (role: string) => {
-        switch (role.toLowerCase()) {
-            case "contributor":
-                return Code;
-            case "guest speaker":
-                return Mic;
-            case "author":
-                return BookOpen;
-            default:
-                return Users;
-        }
-    };
-
-    return (
-        <section id="contributions" className="py-20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-
-            <div className="container mx-auto px-4 relative z-10" ref={ref}>
-                <motion.div
-                    initial={scrollVariants.floatUp.initial}
-                    animate={isInView ? scrollVariants.floatUp.animate : {}}
-                    transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-5xl md:text-6xl font-bold mb-4">
-                        <span className="gradient-text">Open-Source Contributions</span>
-                    </h2>
-                </motion.div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                    {openSourceContributions.map((contribution, index) => {
-                        const Icon = getIcon(contribution.role);
-                        const variant = index % 2 === 0 ? scrollVariants.scattered : scrollVariants.scatteredRight;
-                        return (
-                            <InteractiveElement
-                                key={index}
-                                as={contribution.link ? "a" : "div"}
-                                href={contribution.link}
-                                target={contribution.link ? "_blank" : undefined}
-                                rel={contribution.link ? "noopener noreferrer" : undefined}
-                                className="block"
-                            >
-                                <motion.div
-                                    initial={variant.initial}
-                                    animate={isInView ? variant.animate : {}}
-                                    transition={{
-                                        duration: 0.8,
-                                        delay: index * 0.12,
-                                        ease: [0.22, 1, 0.36, 1]
-                                    }}
-                                    className="glass p-8 rounded-2xl h-full group"
-                                >
-                                    <div className="flex items-start space-x-4">
-                                        <motion.div
-                                            className="flex-shrink-0"
-                                            whileHover={{ scale: 1.1, rotate: 5 }}
-                                            transition={{ duration: 0.3 }}
-                                        >
-                                            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:animate-glow-pulse">
-                                                <Icon className="w-8 h-8 text-primary" />
-                                            </div>
-                                        </motion.div>
-                                        <div className="flex-1">
-                                            <div className="flex items-center justify-between mb-2">
-                                                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                                                    {contribution.title}
-                                                </h3>
-                                                <span className="text-xs font-mono px-2 py-1 rounded bg-primary/20 text-primary">
-                                                    {contribution.role}
-                                                </span>
-                                            </div>
-                                            <p className="text-secondary text-sm font-semibold mb-3">{contribution.date}</p>
-                                            <p className="text-muted-foreground leading-relaxed">
-                                                {contribution.description.split("**").map((part, i) =>
-                                                    i % 2 === 1 ? <strong key={i} className="text-foreground">{part}</strong> : part
-                                                )}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            </InteractiveElement>
-                        );
-                    })}
+      <div className="space-y-4">
+        {openSourceContributions.map((contribution, index) => {
+          const Icon = getIcon(contribution.role);
+          const inner = (
+            <div className="flex items-start gap-4 rounded-md border border-border bg-card p-5 transition-colors hover:border-primary/40">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-primary/5 text-primary">
+                <Icon className="h-4 w-4" />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-baseline gap-x-3">
+                  <h3 className="font-medium text-foreground">{contribution.title}</h3>
+                  <span className="text-xs uppercase tracking-wide text-muted-foreground">
+                    {contribution.role}
+                  </span>
                 </div>
+                <span className="text-xs text-muted-foreground">{contribution.date}</span>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {contribution.description.split("**").map((part, i) =>
+                    i % 2 === 1 ? (
+                      <strong key={i} className="font-medium text-foreground">
+                        {part}
+                      </strong>
+                    ) : (
+                      part
+                    )
+                  )}
+                </p>
+              </div>
             </div>
-        </section>
-    );
+          );
+          return contribution.link ? (
+            <a
+              key={index}
+              href={contribution.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              {inner}
+            </a>
+          ) : (
+            <div key={index}>{inner}</div>
+          );
+        })}
+      </div>
+    </section>
+  );
 };
 
 export default OpenSourceContributions;

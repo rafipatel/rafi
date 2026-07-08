@@ -10,6 +10,7 @@ export const personalInfo = {
     currentRole: "Machine Learning Engineer",
     currentCompany: "Mercor",
     location: "London, United Kingdom",
+    phone: "+44 777 487 4773",
     totalExperience: "Nearly 2 years",
     projectsCompleted: "25+",
     greeting: "Hello!",
@@ -243,6 +244,8 @@ export const socialLinks = {
     github: "https://github.com/rafipatel",
     repoUrl: "https://github.com/rafipatel/rafi",
     huggingface: "https://huggingface.co/Rafii",
+    x: "https://x.com/rafipatel_rafi",
+    email: "rafa.works313@gmail.com",
     cv: "https://drive.google.com/file/d/14RZDtNFdu91xZHUsfjDPN7rgwSZjOTuG/view?usp=sharing"
 };
 
@@ -401,3 +404,38 @@ export const currentTypeLabels: Record<CurrentItemType, string> = {
     scaling: "Scaling",
     working: "Working at",
 };
+
+export const achievements = [
+    {
+        iconName: "target",
+        title: "AI UK 2025 Invitation",
+        date: "March 2025",
+        description:
+            "Invited as AI specialist to AIUK 2025 at The Alan Turing Institute by Harmony research team in recognition of contributions to their mental health production tool. Compensated £1,250 for two-day event.",
+        link: "https://www.turing.ac.uk/ai-uk",
+    },
+    {
+        iconName: "award",
+        title: "NLP Challenge Winner",
+        date: "Jan 2025",
+        description:
+            "Won Harmony NLP Challenge with £250 prize by improving the algorithm for psychology survey question similarity ratings, reducing MAE from 24 to 20.544. Organised by researchers from UCL, Ulster University, and Fast Data Science.",
+        link: "https://harmonydata.ac.uk/matching-challenge-winner-announcement/",
+    },
+    {
+        iconName: "trophy",
+        title: "Research Internship",
+        date: "July 2024",
+        description:
+            "Selected for AI/ML Research Internship at City, University of London utilising UK Cancer Research, and TracerX datasets (publication in progress).",
+    },
+    {
+        iconName: "briefcase",
+        title: "Early Career Offer",
+        date: "Jan 2023",
+        description:
+            "Offered a full-time role in the 3rd month of a 6-month internship based on exceptional performance and contributions at Webomates, Stamford, USA (remote).",
+    },
+];
+
+export const lastUpdated = "2026-07-08";

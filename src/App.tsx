@@ -6,22 +6,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import CustomCursor from "@/components/CustomCursor";
-import AnimatedBackground from "./components/AnimatedBackground";
 import ChatAssistant from "@/components/ChatAssistant";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
+    <ThemeProvider defaultTheme="light" storageKey="portfolio-theme">
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <CustomCursor />
-
-        {/* ✅ Add the animated background here */}
-        <AnimatedBackground />
 
         <BrowserRouter basename="/">
           <Routes>

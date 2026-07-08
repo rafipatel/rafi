@@ -1,6 +1,3 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import {
   ExternalLink,
@@ -17,150 +14,72 @@ import {
 } from "@/data/portfolioData";
 
 const iconMap: Record<CurrentItemData["iconName"], React.ReactNode> = {
-  brain: <Brain className="w-5 h-5" />,
-  clapperboard: <Clapperboard className="w-5 h-5" />,
-  rocket: <Rocket className="w-5 h-5" />,
-  "book-open": <BookOpen className="w-5 h-5" />,
-  "building-2": <Building2 className="w-5 h-5" />,
+  brain: <Brain className="h-4 w-4" />,
+  clapperboard: <Clapperboard className="h-4 w-4" />,
+  rocket: <Rocket className="h-4 w-4" />,
+  "book-open": <BookOpen className="h-4 w-4" />,
+  "building-2": <Building2 className="h-4 w-4" />,
 };
 
 const CurrentlyWorkingOn = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
   return (
-    <section id="current" className="py-20 relative overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,hsla(173_80%_40%/0.06),transparent_60%)]" />
+    <section id="current" className="mt-16 scroll-mt-20">
+      <div className="mb-5 flex items-center gap-2">
+        <span className="h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
+        <h2 className="font-serif text-2xl font-semibold text-foreground">Currently</h2>
+      </div>
 
-      <div className="container mx-auto px-4 relative z-10" ref={ref}>
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-            </span>
-            <span className="text-sm font-medium text-primary">
-              What I'm focused on right now
-            </span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            Currently{" "}
-            <span className="gradient-text">Working On</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A snapshot of the projects, research, and learning I'm actively
-            investing my time in — April 2026
-          </p>
-        </motion.div>
-
-        {/* Cards grid */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {currentlyWorkingOn.map((item, index) => (
-            <motion.div
-              key={item.title}
-              className={index === 0 ? "md:col-span-2" : ""}
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              animate={
-                isInView ? { opacity: 1, y: 0, scale: 1 } : {}
-              }
-              transition={{
-                duration: 0.6,
-                delay: index * 0.12,
-                ease: [0.21, 0.47, 0.32, 0.98],
-              }}
-            >
-              <div
-                className="glass rounded-2xl p-6 h-full group hover:shadow-[var(--shadow-elegant)] transition-all duration-500 relative overflow-hidden"
-                style={
-                  {
-                    "--item-accent": `hsl(${item.accentColor})`,
-                  } as React.CSSProperties
-                }
-              >
-                {/* Accent glow on hover */}
-                <div
-                  className="absolute -top-12 -right-12 w-32 h-32 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-2xl"
-                  style={{
-                    background: `hsl(${item.accentColor})`,
-                  }}
-                />
-
-                {/* Header row */}
-                <div className="flex items-start justify-between mb-4 relative z-10">
-                  <div className="flex items-center gap-3">
-                    {/* SVG icon in accent-tinted circle */}
-                    <div
-                      className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-                      style={{
-                        color: `hsl(${item.accentColor})`,
-                        background: `hsl(${item.accentColor} / 0.12)`,
-                        border: `1px solid hsl(${item.accentColor} / 0.2)`,
-                      }}
-                    >
-                      {iconMap[item.iconName]}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                          {item.title}
-                        </h3>
-                        {item.link && (
-                          <a
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="opacity-0 group-hover:opacity-100 transition-opacity"
-                            aria-label={`Visit ${item.title}`}
-                          >
-                            <ExternalLink className="w-4 h-4 text-primary" />
-                          </a>
-                        )}
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        {item.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                  <span
-                    className="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border flex-shrink-0"
-                    style={{
-                      color: `hsl(${item.accentColor})`,
-                      borderColor: `hsl(${item.accentColor} / 0.3)`,
-                      background: `hsl(${item.accentColor} / 0.08)`,
-                    }}
-                  >
-                    {currentTypeLabels[item.type]}
-                  </span>
+      <div className="space-y-4">
+        {currentlyWorkingOn.map((item) => (
+          <div
+            key={item.title}
+            className="rounded-md border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <div className="mb-2 flex items-start justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-primary/5 text-primary">
+                  {iconMap[item.iconName]}
                 </div>
-
-                {/* Description */}
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed relative z-10">
-                  {item.description}
-                </p>
-
-                {/* Badges */}
-                <div className="flex flex-wrap gap-1.5 relative z-10">
-                  {item.badges.map((badge) => (
-                    <Badge
-                      key={badge}
-                      variant="outline"
-                      className="text-xs border-primary/20 text-primary/80 hover:border-primary/40 transition-colors"
-                    >
-                      {badge}
-                    </Badge>
-                  ))}
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-medium text-foreground">{item.title}</h3>
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit ${item.title}`}
+                        className="text-muted-foreground transition-colors hover:text-primary"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                  </div>
+                  <p className="text-sm text-muted-foreground">{item.subtitle}</p>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <span className="shrink-0 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                {currentTypeLabels[item.type]}
+              </span>
+            </div>
+
+            <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+              {item.description}
+            </p>
+
+            <div className="flex flex-wrap gap-1.5">
+              {item.badges.map((badge) => (
+                <Badge
+                  key={badge}
+                  variant="outline"
+                  className="border-border text-xs font-normal text-muted-foreground"
+                >
+                  {badge}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

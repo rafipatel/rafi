@@ -2,95 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design system — single light, minimal theme.
+   Off-white paper background, near-black warm text, one restrained rust accent.
+   All colors are HSL. */
 
 @layer base {
   :root {
-    /* Dark theme (default) */
-    --background: 222 47% 4%;
-    --foreground: 210 40% 98%;
-
-    --card: 222 47% 6%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222 47% 6%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 173 80% 40%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 173 80% 60%;
-
-    --secondary: 38 92% 50%;
-    --secondary-foreground: 222 47% 4%;
-
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
-
-    --muted: 222 47% 11%;
-    --muted-foreground: 215 20% 65%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 222 47% 11%;
-    --input: 222 47% 11%;
-    --ring: 173 80% 40%;
-
-    --radius: 1rem;
-
-    /* Gradient tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(173 80% 40%) 0%, hsl(217 91% 60%) 50%, hsl(38 92% 50%) 100%);
-    --gradient-card: linear-gradient(135deg, hsla(222 47% 8% / 0.6), hsla(222 47% 6% / 0.4));
-    --gradient-glow: radial-gradient(circle at 50% 0%, hsla(173 80% 60% / 0.15), transparent 50%);
-
-    /* Shadow tokens */
-    --shadow-glow: 0 0 60px hsla(173 80% 60% / 0.3);
-    --shadow-card: 0 8px 32px hsla(0 0% 0% / 0.4);
-    --shadow-elegant: 0 20px 60px -15px hsla(173 80% 60% / 0.4);
-  }
-
-  .light {
-    /* Light theme */
-    --background: 0 0% 98%;
-    --foreground: 222 47% 11%;
+    --background: 40 30% 98%;
+    --foreground: 24 10% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 24 10% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 24 10% 12%;
 
-    --primary: 173 80% 40%;
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 173 80% 50%;
+    /* Warm rust accent — links, buttons, active states */
+    --primary: 18 58% 42%;
+    --primary-foreground: 40 30% 98%;
 
-    --secondary: 38 92% 50%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 30 8% 94%;
+    --secondary-foreground: 24 10% 20%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 18 58% 42%;
+    --accent-foreground: 40 30% 98%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 30 12% 95%;
+    --muted-foreground: 25 8% 40%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 40 30% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 173 80% 40%;
+    --border: 30 12% 90%;
+    --input: 30 12% 90%;
+    --ring: 18 58% 42%;
 
-    /* Light theme gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(173 80% 40%) 0%, hsl(217 91% 60%) 50%, hsl(38 92% 50%) 100%);
-    --gradient-card: linear-gradient(135deg, hsla(0 0% 100% / 0.8), hsla(0 0% 100% / 0.6));
-    --gradient-glow: radial-gradient(circle at 50% 0%, hsla(173 80% 60% / 0.1), transparent 50%);
+    --radius: 0.5rem;
 
-    /* Light theme shadows */
-    --shadow-glow: 0 0 60px hsla(173 80% 60% / 0.2);
-    --shadow-card: 0 8px 32px hsla(0 0% 0% / 0.1);
-    --shadow-elegant: 0 20px 60px -15px hsla(173 80% 60% / 0.3);
+    /* Flat, subtle card shadow only */
+    --shadow-card: 0 1px 2px hsl(24 10% 12% / 0.06);
   }
 }
 
@@ -102,44 +52,28 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    cursor: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   html {
     scroll-behavior: smooth;
   }
-
-  * {
-    cursor: none;
-  }
-
-  a, button {
-    cursor: none !important;
-  }
 }
 
 @layer utilities {
+  /* Neutralized legacy utilities kept as safe no-ops for any remaining consumers */
   .glass {
-    background: linear-gradient(135deg, hsla(222 47% 8% / 0.6), hsla(222 47% 6% / 0.4));
-    backdrop-filter: blur(20px);
-    border: 1px solid hsla(173 80% 60% / 0.1);
-  }
-
-  .light .glass {
-    background: linear-gradient(135deg, hsla(0 0% 100% / 0.8), hsla(0 0% 100% / 0.6));
-    backdrop-filter: blur(20px);
-    border: 1px solid hsla(173 80% 40% / 0.15);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
   }
 
   .glow-text {
-    text-shadow: 0 0 30px hsla(173 80% 60% / 0.5);
+    text-shadow: none;
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, hsl(173 80% 60%), hsl(217 91% 60%), hsl(38 92% 60%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: hsl(var(--foreground));
+    -webkit-text-fill-color: currentColor;
   }
 }

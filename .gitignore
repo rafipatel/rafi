@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Portfolio miner (local digest, never committed)
+.portfolio/
