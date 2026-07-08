@@ -26,17 +26,6 @@ const links = [
   { label: "CV", href: socialLinks.cv, icon: FileText },
 ];
 
-const sections = [
-  { id: "about", label: "About" },
-  { id: "current", label: "Currently" },
-  { id: "resume", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "achievements", label: "Achievements" },
-  { id: "contributions", label: "Open Source" },
-  { id: "certifications", label: "Certifications" },
-  { id: "contact", label: "Contact" },
-];
-
 const ProfileSidebar = () => {
   const [imgOk, setImgOk] = useState(true);
 
@@ -85,19 +74,6 @@ const ProfileSidebar = () => {
             className="flex min-h-[44px] cursor-pointer items-center gap-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
             <Icon className="h-[18px] w-[18px] shrink-0" aria-hidden="true" />
-            {label}
-          </a>
-        ))}
-      </nav>
-
-      {/* Section jump-nav */}
-      <nav aria-label="Sections" className="hidden flex-col border-t border-border pt-4 lg:flex">
-        {sections.map(({ id, label }) => (
-          <a
-            key={id}
-            href={`#${id}`}
-            className="cursor-pointer py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
             {label}
           </a>
         ))}

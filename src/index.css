@@ -18,13 +18,13 @@
     --popover-foreground: 24 10% 12%;
 
     /* Warm rust accent — links, buttons, active states */
-    --primary: 18 58% 42%;
+    --primary: 160 84% 39%;
     --primary-foreground: 40 30% 98%;
 
     --secondary: 30 8% 94%;
     --secondary-foreground: 24 10% 20%;
 
-    --accent: 18 58% 42%;
+    --accent: 160 84% 39%;
     --accent-foreground: 40 30% 98%;
 
     --muted: 30 12% 95%;
@@ -35,7 +35,7 @@
 
     --border: 30 12% 90%;
     --input: 30 12% 90%;
-    --ring: 18 58% 42%;
+    --ring: 160 84% 39%;
 
     --radius: 0.5rem;
 

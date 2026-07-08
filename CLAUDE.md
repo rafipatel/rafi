@@ -6,7 +6,7 @@ via GitHub Pages on push to `main`.
 ## Design
 Clean, light, typography-first (academic / Minimal-Mistakes feel). Two-column:
 fixed left `ProfileSidebar` (photo/monogram, name, role, links, section jump-nav) +
-right content column. One warm-rust accent (`--primary: 18 58% 42%`), off-white bg,
+right content column. One emerald accent (`--primary: 160 84% 39%`), off-white bg,
 serif headings (Newsreader) over Inter body, hairline cards, minimal motion.
 No neon gradients/glows, no custom cursor, no 3D background. Keep it that way.
 

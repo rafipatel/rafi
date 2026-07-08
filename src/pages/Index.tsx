@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProfileSidebar from "@/components/ProfileSidebar";
+import TopNav from "@/components/TopNav";
 import About from "@/components/About";
 import CurrentlyWorkingOn from "@/components/CurrentlyWorkingOn";
 import Resume from "@/components/Resume";
@@ -17,6 +18,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-background text-foreground">
+      <TopNav />
       <div className="mx-auto max-w-6xl px-6 py-12 lg:grid lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-16 lg:py-16">
         {/* Left profile sidebar */}
         <div className="mb-12 lg:mb-0 lg:sticky lg:top-16 lg:h-fit lg:self-start">
